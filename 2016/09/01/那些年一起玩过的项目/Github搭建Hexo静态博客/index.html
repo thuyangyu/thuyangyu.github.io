@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="与最美好的自己，在未来相遇">
 <meta property="og:description" content="&amp;#x9759;&amp;#x6001;&amp;#x535A;&amp;#x5BA2;&amp;#x7684;&amp;#x4F18;&amp;#x52BF;hexo&amp;#x76F8;&amp;#x5BF9;&amp;#x4E8E;wp&amp;#xFF0C;&amp;#x6700;&amp;#x5927;&amp;#x7684;&amp;#x533A;&amp;#x522B;&amp;#x5C31;&amp;#x662F;&amp;#x5B83;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x9759;&amp;#x6001;&amp;#">
 <meta property="og:image" content="http://yoursite.com/2016/09/01/那些年一起玩过的项目/Github搭建Hexo静态博客/101472820726_.pic.jpg">
-<meta property="og:updated_time" content="2016-09-02T14:34:10.000Z">
+<meta property="og:updated_time" content="2016-09-02T15:16:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Github搭建Hexo静态博客">
 <meta name="twitter:description" content="&amp;#x9759;&amp;#x6001;&amp;#x535A;&amp;#x5BA2;&amp;#x7684;&amp;#x4F18;&amp;#x52BF;hexo&amp;#x76F8;&amp;#x5BF9;&amp;#x4E8E;wp&amp;#xFF0C;&amp;#x6700;&amp;#x5927;&amp;#x7684;&amp;#x533A;&amp;#x522B;&amp;#x5C31;&amp;#x662F;&amp;#x5B83;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x9759;&amp;#x6001;&amp;#">
@@ -417,6 +417,8 @@
 <p><a href="http://theme-next.iissnan.com/theme-settings.html" target="_blank" rel="external">&#x591A;&#x8BF4;&#x8BBE;&#x7F6E;&#x535A;&#x4E3B;&#x663E;&#x793A;&#x529F;&#x80FD;</a></p>
 <h1 id="&#x6DFB;&#x52A0;&#x641C;&#x7D22;&#x529F;&#x80FD;"><a href="#&#x6DFB;&#x52A0;&#x641C;&#x7D22;&#x529F;&#x80FD;" class="headerlink" title="&#x6DFB;&#x52A0;&#x641C;&#x7D22;&#x529F;&#x80FD;"></a>&#x6DFB;&#x52A0;&#x641C;&#x7D22;&#x529F;&#x80FD;</h1><p>&#x63A8;&#x8350;swiftype</p>
 <p><a href="http://www.cnblogs.com/tengj/p/5353897.html" target="_blank" rel="external">hexo&#x5EFA;&#x7ACB;&#x7AD9;&#x5185;&#x641C;&#x7D22;</a></p>
+<p>&#x4E5F;&#x53EF;&#x4EE5;&#x81EA;&#x5DF1;&#x5199;Java Script&#x672C;&#x5730;&#x641C;&#x7D22;&#x51FD;&#x6570;&#xFF0C;&#x771F;&#x5BF9;&#x5C0F;&#x578B;&#x7F51;&#x7AD9;</p>
+<p><a href="http://jeffworkshop.com/2016/01/01/hexo-Local-Search/#Create_the_Search_page" target="_blank" rel="external">hexo local search engine</a></p>
 <p>&#x5176;&#x4ED6;&#x53C2;&#x8003;&#x94FE;&#x63A5;&#xFF1A;</p>
 <p><a href="http://www.tuicool.com/articles/umEBVfI" target="_blank" rel="external">&#x63D2;&#x5165;&#x56FE;&#x7247;&#x53C2;&#x8003;&#x89E3;&#x51B3;&#x65B9;&#x6848;</a><br><a href="http://www.tuicool.com/articles/Z32iUz" target="_blank" rel="external">&#x4F7F;&#x7528;Github&#x642D;&#x5EFA;&#x9759;&#x6001;&#x535A;&#x5BA2;&#xFF08;Hexo&#xFF09;</a><br><a href="http://www.jianshu.com/p/db7e64d86067" target="_blank" rel="external">hexo&#x535A;&#x5BA2;&#x914D;&#x7F6E;&#x3001;&#x4E3B;&#x9898;&#x4E0E;&#x5199;&#x4F5C;</a></p>
 
@@ -750,6 +752,135 @@
 
   
   
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
 
   
 
