@@ -1,0 +1,623 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="C++&amp;#x4E0E;Eigen&amp;#x5E93;&amp;#x7684;&amp;#x4F7F;&amp;#x7528;&amp;#x4E0E;&amp;#x603B;&amp;#x7ED3;
+##C++&amp;#x7ECF;&amp;#x9A8C;&amp;#x603B;&amp;#x7ED3;
+
+&amp;#x6CE8;&amp;#x610F;#include&amp;#x4E4B;&amp;#x540E;&amp;#x8981;&amp;#x7A7A;&amp;#x4E00;&amp;#x683C;&amp;#xFF1B;
+&amp;#x5F00">
+<meta property="og:type" content="article">
+<meta property="og:title" content="与最美好的自己，在未来相遇">
+<meta property="og:url" content="http://yoursite.com/2016/08/10/编程语言回顾/C++与Eigen库的使用与总结/index.html">
+<meta property="og:site_name" content="与最美好的自己，在未来相遇">
+<meta property="og:description" content="C++&amp;#x4E0E;Eigen&amp;#x5E93;&amp;#x7684;&amp;#x4F7F;&amp;#x7528;&amp;#x4E0E;&amp;#x603B;&amp;#x7ED3;
+##C++&amp;#x7ECF;&amp;#x9A8C;&amp;#x603B;&amp;#x7ED3;
+
+&amp;#x6CE8;&amp;#x610F;#include&amp;#x4E4B;&amp;#x540E;&amp;#x8981;&amp;#x7A7A;&amp;#x4E00;&amp;#x683C;&amp;#xFF1B;
+&amp;#x5F00">
+<meta property="og:updated_time" content="2016-08-10T15:52:28.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="与最美好的自己，在未来相遇">
+<meta name="twitter:description" content="C++&amp;#x4E0E;Eigen&amp;#x5E93;&amp;#x7684;&amp;#x4F7F;&amp;#x7528;&amp;#x4E0E;&amp;#x603B;&amp;#x7ED3;
+##C++&amp;#x7ECF;&amp;#x9A8C;&amp;#x603B;&amp;#x7ED3;
+
+&amp;#x6CE8;&amp;#x610F;#include&amp;#x4E4B;&amp;#x540E;&amp;#x8981;&amp;#x7A7A;&amp;#x4E00;&amp;#x683C;&amp;#xFF1B;
+&amp;#x5F00">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/08/10/编程语言回顾/C++与Eigen库的使用与总结/"/>
+
+  <title>  | 与最美好的自己，在未来相遇 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">与最美好的自己，在未来相遇</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-08-10T23:52:28+08:00" content="2016-08-10">
+              2016-08-10
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="C-&#x4E0E;Eigen&#x5E93;&#x7684;&#x4F7F;&#x7528;&#x4E0E;&#x603B;&#x7ED3;"><a href="#C-&#x4E0E;Eigen&#x5E93;&#x7684;&#x4F7F;&#x7528;&#x4E0E;&#x603B;&#x7ED3;" class="headerlink" title="C++&#x4E0E;Eigen&#x5E93;&#x7684;&#x4F7F;&#x7528;&#x4E0E;&#x603B;&#x7ED3;"></a>C++&#x4E0E;Eigen&#x5E93;&#x7684;&#x4F7F;&#x7528;&#x4E0E;&#x603B;&#x7ED3;</h1><!--
+create time: 2016-04-13 15:06:40
+Author: <TODO: 请写上你的名字>
+
+This file is created by Marboo<http://marboo.io> template file $MARBOO_HOME/.media/starts/default.md
+本文件由 Marboo<http://marboo.io> 模板文件 $MARBOO_HOME/.media/starts/default.md 创建
+-->
+<p>##C++&#x7ECF;&#x9A8C;&#x603B;&#x7ED3;</p>
+<ul>
+<li>&#x6CE8;&#x610F;<code>#include</code>&#x4E4B;&#x540E;&#x8981;&#x7A7A;&#x4E00;&#x683C;&#xFF1B;</li>
+<li>&#x5F00;&#x59CB;&#x5199;&#x4EE3;&#x7801;&#x65F6;&#x5019;&#x522B;&#x5FD8;&#x4E86;&#x4F60;&#x7684;<code>using namespace std;</code></li>
+<li>&#x4F60;&#x7684;&#x7F16;&#x8BD1;&#x9009;&#x9879;<code>g++ hello.cpp -o hello</code></li>
+</ul>
+<p>&#x522B;&#x5FD8;&#x8BB0;&#x4F60;&#x7684;&#x7EC8;&#x6781;REP</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#define REP(i, n) for (int i = 0; i &lt; (n); i++)</div><div class="line">#define foreach(e, x) for (__typeof(x.begin()) e = x.begin(); e != x.end(); e++)</div></pre></td></tr></table></figure>
+<p>##&#x5173;&#x4E8E;Eigen&#x5E93;&#x7684;&#x4F7F;&#x7528;&#x4E0E;&#x603B;&#x7ED3;:</p>
+<p>&#x4E2D;&#x6587;&#x6280;&#x672F;&#x535A;&#x5BA2;&#x7B80;&#x76F4;&#x662F;&#x6E23;&#x5230;&#x7206;&#x70B8;&#x3002;<br>&#x6700;&#x597D;&#x7684;&#x65B9;&#x5F0F;&#x5C31;&#x662F;&#x76F4;&#x63A5;&#x770B;&#x5B98;&#x7F51;&#x539F;&#x59CB;&#x6587;&#x6863;&#xFF0C;&#x9886;&#x4F1A;&#x9700;&#x8981;&#x7528;&#x5230;&#x7684;&#x57FA;&#x672C;&#x70B9;&#xFF0C;&#x7136;&#x540E;&#x81EA;&#x5DF1;&#x5199;&#x4E00;&#x4EFD;&#x80FD;&#x591F;&#x8BA9;&#x81EA;&#x5DF1;&#x5FEB;&#x901F;&#x4E0A;&#x624B;&#x7684;&#x6587;&#x6863;&#x51FA;&#x6765;&#x770B;&#x3002;</p>
+<p>&#x6CE8;&#x610F;markdown&#x672C;&#x8EAB;&#x5E76;&#x4E0D;&#x652F;&#x6301;&#x989C;&#x8272;&#xFF0C;&#x4F7F;&#x7528;<strong>&#x52A0;&#x7C97;*</strong>&#x659C;&#x4F53;*==&#x6587;&#x5B57;&#x9AD8;&#x4EAE;==&#x6765;&#x5F3A;&#x8C03;&#x4F60;&#x7684;&#x91CD;&#x70B9;&#x5373;&#x53EF;&#xFF0C;&#x5176;&#x4F18;&#x70B9;&#x5728;&#x4E8E;&#x6E05;&#x6670;&#x7684;&#x4EE3;&#x7801;&#x663E;&#x793A;&#x3002;</p>
+<p>##Eigen&#x7684;&#x7F16;&#x8BD1;&#x65B9;&#x5F0F;&#x4E0E;&#x73AF;&#x5883;&#x914D;&#x7F6E;&#xFF1A;<br>you use the -I option to achieve this, so you can compile the program with a command like this:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">g++ -I /path/to/eigen/ my_program.cpp -o my_program</div></pre></td></tr></table></figure>
+<p>On Linux or Mac OS X, another option is to symlink or copy the Eigen folder into <code>/usr/local/include/</code>. This way, you can compile the program with:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">g++ my_program.cpp -o my_program</div><div class="line">``` </div><div class="line"></div><div class="line">###Eigen&#x57FA;&#x672C;&#x5143;&#x7D20;</div><div class="line"></div><div class="line">```c</div><div class="line">include &lt;Eigen/Dense&gt;</div><div class="line"></div><div class="line">Matrix&lt;double, 3, 3&gt; A;               // Fixed rows and cols. Same as Matrix3d.</div><div class="line">Matrix&lt;double, 3, Dynamic&gt; B;         // Fixed rows, dynamic cols.</div><div class="line">Matrix&lt;double, Dynamic, Dynamic&gt; C;   // Full dynamic. Same as MatrixXd.</div><div class="line">Matrix&lt;double, 3, 3, RowMajor&gt; E;     // Row major; default is column-major.</div></pre></td></tr></table></figure>
+<p>####&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;3*3&#x7684;&#x77E9;&#x9635;&#xFF0C;&#x6709;&#x4E09;&#x79CD;&#x5B9A;&#x4E49;&#x65B9;&#x5F0F;&#xFF1A;<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">include &lt;Eigen/Dense&gt;</div><div class="line"></div><div class="line"><span class="comment">//&#x77E9;&#x9635;&#x6BCF;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x7C7B;&#x578B;&#x662F;double</span></div><div class="line">Matrix&lt;<span class="keyword">double</span>, <span class="number">3</span>, <span class="number">3</span>&gt; A;</div><div class="line"><span class="function">MatrixXd <span class="title">A</span><span class="params">(<span class="number">3</span>,<span class="number">3</span>)</span></span>;</div><div class="line">Matrix3d A;</div><div class="line"></div><div class="line"><span class="comment">//&#x77E9;&#x9635;&#x6BCF;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x662F;float</span></div><div class="line">Matrix&lt;<span class="keyword">float</span>, <span class="number">3</span>, <span class="number">3</span>&gt; A;</div><div class="line"><span class="function">MatrixXf <span class="title">A</span><span class="params">(<span class="number">3</span>,<span class="number">3</span>)</span></span>;</div><div class="line">Matrix3f A;</div></pre></td></tr></table></figure></p>
+<p>####&#x7ED9;&#x4E00;&#x4E2A;&#x6307;&#x5B9A;&#x7684;&#x77E9;&#x9635;&#x8D4B;&#x503C;&#x7684;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#xFF08;&#x6BD4;&#x5982;3*3&#x77E9;&#x9635;&#xFF09;<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">include</div></pre></td></tr></table></figure></p>
+<p>&#x4E00;&#x5B9A;&#x53EF;&#x4EE5;&#x6267;&#x884C;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x8BF7;&#x53BB;&#x5B98;&#x7F51;&#x5BFB;&#x627E;<br><a href="http://eigen.tuxfamily.org/dox/group__TutorialLinearAlgebra.html" target="_blank" rel="external">Eigen&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7684;&#x89E3;&#x6CD5;</a></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;Eigen/Dense&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> Eigen;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">{</div><div class="line">   Matrix3f A;</div><div class="line">   Vector3f b;</div><div class="line">   A &lt;&lt; <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,  <span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,  <span class="number">7</span>,<span class="number">8</span>,<span class="number">10</span>;</div><div class="line">   b &lt;&lt; <span class="number">3</span>, <span class="number">3</span>, <span class="number">4</span>;</div><div class="line">   <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Here is the matrix A:\n&quot;</span> &lt;&lt; A &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">   <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Here is the vector b:\n&quot;</span> &lt;&lt; b &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">   Vector3f x = A.colPivHouseholderQr().solve(b);</div><div class="line">   <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;The solution is:\n&quot;</span> &lt;&lt; x &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">}</div></pre></td></tr></table></figure>
+<blockquote>
+<p>==&#x4F60;&#x5148;&#x628A;&#x57FA;&#x672C;&#x7684;&#x8FD0;&#x7B97;&#x9700;&#x6C42;&#x90FD;&#x5148;&#x7F57;&#x5217;&#x51FA;&#x6765;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x5728;&#x5E93;&#x7684;&#x4E3B;&#x9875;&#x4E2D;&#x5BFB;&#x627E;&#x4F60;&#x8981;&#x7528;&#x5230;&#x7684;&#x8BED;&#x8A00;&#x70B9;&#xFF0C;&#x8FD9;&#x6837;&#x66F4;&#x6709;&#x9488;&#x5BF9;&#x6027;&#x3002;==</p>
+</blockquote>
+<p>###&#x672A;&#x7ECF;&#x8FC7;&#x6D4B;&#x8BD5;&#x7684;Eigen&#x4EE3;&#x7801;</p>
+<p>####&#x77E9;&#x9635;&#x53CA;&#x5411;&#x91CF;&#x7684;&#x5B9A;&#x4E49;&#x4E0E;&#x8D4B;&#x503C;<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;Eigen/Dense&gt;</span></span></div><div class="line"></div><div class="line">Matrix&lt;<span class="keyword">double</span>, <span class="number">3</span>, <span class="number">3</span>&gt; A;               <span class="comment">// Fixed rows and cols. Same as Matrix3d.</span></div><div class="line">Matrix&lt;<span class="keyword">double</span>, <span class="number">3</span>, Dynamic&gt; B;         <span class="comment">// Fixed rows, dynamic cols.</span></div><div class="line">Matrix&lt;<span class="keyword">double</span>, Dynamic, Dynamic&gt; C;   <span class="comment">// Full dynamic. Same as MatrixXd.</span></div><div class="line">Matrix&lt;<span class="keyword">double</span>, <span class="number">3</span>, <span class="number">3</span>, RowMajor&gt; E;     <span class="comment">// Row major; default is column-major.</span></div><div class="line">Matrix3f P, Q, R;                     <span class="comment">// 3x3 float matrix.</span></div><div class="line">Vector3f x, y, z;                     <span class="comment">// 3x1 float matrix.</span></div><div class="line">RowVector3f a, b, c;                  <span class="comment">// 1x3 float matrix.</span></div><div class="line">VectorXd v;                           <span class="comment">// Dynamic column vector of doubles</span></div><div class="line"><span class="keyword">double</span> s;</div></pre></td></tr></table></figure></p>
+<p>####&#x83B7;&#x53D6;&#x77E9;&#x9635;&#x53C2;&#x6570;&#xFF0C;&#x884C;&#x5217;&#x503C;&#xFF0C;&#x5404;&#x4F4D;&#x7F6E;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x7B80;&#x5355;&#x8D4B;&#x503C;<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Basic usage</span></div><div class="line"><span class="comment">// Eigen          // Matlab           // comments</span></div><div class="line">x.size()          <span class="comment">// length(x)        // vector size</span></div><div class="line">C.rows()          <span class="comment">// size(C,1)        // number of rows</span></div><div class="line">C.cols()          <span class="comment">// size(C,2)        // number of columns</span></div><div class="line">x(i)              <span class="comment">// x(i+1)           // Matlab is 1-based</span></div><div class="line">C(i,j)            <span class="comment">// C(i+1,j+1)       //</span></div><div class="line"></div><div class="line">A.resize(<span class="number">4</span>, <span class="number">4</span>);   <span class="comment">// Runtime error if assertions are on.</span></div><div class="line">B.resize(<span class="number">4</span>, <span class="number">9</span>);   <span class="comment">// Runtime error if assertions are on.</span></div><div class="line">A.resize(<span class="number">3</span>, <span class="number">3</span>);   <span class="comment">// Ok; size didn&apos;t change.</span></div><div class="line">B.resize(<span class="number">3</span>, <span class="number">9</span>);   <span class="comment">// Ok; only dynamic cols changed.</span></div><div class="line">                  </div><div class="line">A &lt;&lt; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>,     <span class="comment">// Initialize A. The elements can also be</span></div><div class="line">     <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>,     <span class="comment">// matrices, which are stacked along cols</span></div><div class="line">     <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>;     <span class="comment">// and then the rows are stacked.</span></div><div class="line">B &lt;&lt; A, A, A;     <span class="comment">// B is three horizontally stacked A&apos;s.</span></div><div class="line">A.fill(<span class="number">10</span>);       <span class="comment">// Fill A with all 10&apos;s.</span></div></pre></td></tr></table></figure></p>
+<p>####&#x7279;&#x6B8A;&#x77E9;&#x9635;&#x751F;&#x6210;&#xFF0C;&#x5355;&#x4F4D;&#x9635;&#xFF0C;&#x96F6;&#x77E9;&#x9635;&#xFF0C;&#x5168;1&#x9635;&#xFF0C;&#x968F;&#x673A;&#x77E9;&#x9635;&#xFF0C;linespace&#x5411;&#x91CF;&#x7B49;<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Eigen                            // Matlab</span></div><div class="line">MatrixXd::Identity(rows,cols)       <span class="comment">// eye(rows,cols)</span></div><div class="line">C.setIdentity(rows,cols)            <span class="comment">// C = eye(rows,cols)</span></div><div class="line">MatrixXd::Zero(rows,cols)           <span class="comment">// zeros(rows,cols)</span></div><div class="line">C.setZero(rows,cols)                <span class="comment">// C = ones(rows,cols)</span></div><div class="line">MatrixXd::Ones(rows,cols)           <span class="comment">// ones(rows,cols)</span></div><div class="line">C.setOnes(rows,cols)                <span class="comment">// C = ones(rows,cols)</span></div><div class="line">MatrixXd::Random(rows,cols)         <span class="comment">// rand(rows,cols)*2-1        // MatrixXd::Random returns uniform random numbers in (-1, 1).</span></div><div class="line">C.setRandom(rows,cols)              <span class="comment">// C = rand(rows,cols)*2-1</span></div><div class="line">VectorXd::LinSpaced(size,low,high)   <span class="comment">// linspace(low,high,size)&apos;</span></div><div class="line">v.setLinSpaced(size,low,high)        <span class="comment">// v = linspace(low,high,size)&apos;</span></div></pre></td></tr></table></figure></p>
+<p>####&#x77E9;&#x9635;&#x5143;&#x7D20;&#x7684;&#x4EA4;&#x6362;&#xFF08;&#x611F;&#x89C9;&#x6CA1;&#x5565;&#x7528;&#xFF09;<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Of particular note is Eigen&apos;s swap function which is highly optimized.</span></div><div class="line"><span class="comment">// Eigen                           // Matlab</span></div><div class="line">R.row(i) = P.col(j);               <span class="comment">// R(i, :) = P(:, i)</span></div><div class="line">R.col(j1).swap(mat1.col(j2));      <span class="comment">// R(:, [j1 j2]) = R(:, [j2, j1])</span></div></pre></td></tr></table></figure></p>
+<p>####&#x77E9;&#x9635;&#x7684;&#x8F6C;&#x7F6E;<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Views, transpose, etc; all read-write except for .adjoint().</span></div><div class="line"><span class="comment">// Eigen                           // Matlab</span></div><div class="line">R.adjoint()                        <span class="comment">// R&apos;</span></div><div class="line">R.transpose()                      <span class="comment">// R.&apos; or conj(R&apos;)</span></div><div class="line">R.diagonal()                       <span class="comment">// diag(R)</span></div><div class="line">x.asDiagonal()                     <span class="comment">// diag(x)</span></div><div class="line">R.transpose().colwise().reverse(); <span class="comment">// rot90(R)</span></div><div class="line">R.conjugate()                      <span class="comment">// conj(R)</span></div></pre></td></tr></table></figure></p>
+<p>####&#x77E9;&#x9635;&#x7684;&#x4E58;&#x79EF;<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// All the same as Matlab, but matlab doesn&apos;t have *= style operators.</span></div><div class="line"><span class="comment">// Matrix-vector.  Matrix-matrix.   Matrix-scalar.</span></div><div class="line">y  = M*x;          R  = P*Q;        R  = P*s;</div><div class="line">a  = b*M;          R  = P - Q;      R  = s*P;</div><div class="line">a *= M;            R  = P + Q;      R  = P/s;</div><div class="line">                   R *= Q;          R  = s*P;</div><div class="line">                   R += Q;          R *= s;</div><div class="line">                   R -= Q;          R /= s;</div></pre></td></tr></table></figure></p>
+<p>####&#x77E9;&#x9635;&#x7684;&#x70B9;&#x4E58;<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Dot products, norms, etc.</span></div><div class="line"><span class="comment">// Eigen                  // Matlab</span></div><div class="line">x.norm()                  <span class="comment">// norm(x).    Note that norm(R) doesn&apos;t work in Eigen.</span></div><div class="line">x.squaredNorm()           <span class="comment">// dot(x, x)   Note the equivalence is not true for complex</span></div><div class="line">x.dot(y)                  <span class="comment">// dot(x, y)</span></div><div class="line">x.cross(y)                <span class="comment">// cross(x, y) Requires #include &lt;Eigen/Geometry&gt;</span></div></pre></td></tr></table></figure></p>
+<p>####&#x6C42;&#x89E3;&#x7EBF;&#x6027;&#x65B9;&#x7A0B;&#x7EC4;<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Solve Ax = b. Result stored in x. Matlab: x = A \ b.</span></div><div class="line">x = A.ldlt().solve(b));  <span class="comment">// A sym. p.s.d.    #include &lt;Eigen/Cholesky&gt;</span></div><div class="line">x = A.llt() .solve(b));  <span class="comment">// A sym. p.d.      #include &lt;Eigen/Cholesky&gt;</span></div><div class="line">x = A.lu()  .solve(b));  <span class="comment">// Stable and fast. #include &lt;Eigen/LU&gt;</span></div><div class="line">x = A.qr()  .solve(b));  <span class="comment">// No pivoting.     #include &lt;Eigen/QR&gt;</span></div><div class="line">x = A.svd() .solve(b));  <span class="comment">// Stable, slowest. #include &lt;Eigen/SVD&gt;</span></div><div class="line"><span class="comment">// .ldlt() -&gt; .matrixL() and .matrixD()</span></div><div class="line"><span class="comment">// .llt()  -&gt; .matrixL()</span></div><div class="line"><span class="comment">// .lu()   -&gt; .matrixL() and .matrixU()</span></div><div class="line"><span class="comment">// .qr()   -&gt; .matrixQ() and .matrixR()</span></div><div class="line"><span class="comment">// .svd()  -&gt; .matrixU(), .singularValues(), and .matrixV()</span></div></pre></td></tr></table></figure></p>
+<p>####&#x77E9;&#x9635;&#x7684;&#x7279;&#x5F81;&#x503C;<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Eigenvalue problems</span></div><div class="line"><span class="comment">// Eigen                          // Matlab</span></div><div class="line">A.eigenvalues();                  <span class="comment">// eig(A);</span></div><div class="line">EigenSolver&lt;Matrix3d&gt; eig(A);     <span class="comment">// [vec val] = eig(A)</span></div><div class="line">eig.eigenvalues();                <span class="comment">// diag(val)</span></div><div class="line">eig.eigenvectors();               <span class="comment">// vec</span></div><div class="line"><span class="comment">// For self-adjoint matrices use SelfAdjointEigenSolver&lt;&gt;</span></div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/10/程序员的自我修养/Git及Github常见命令.comments/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/10/编程语言回顾/Java快速上手/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Aldrich_Yang" />
+          <p class="site-author-name" itemprop="name">Aldrich_Yang</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#C-与Eigen库的使用与总结"><span class="nav-number">1.</span> <span class="nav-text">C++与Eigen库的使用与总结</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Aldrich_Yang</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
