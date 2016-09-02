@@ -1,2 +1,0 @@
-User-agent: Swiftbot
-Sitemap: https://thuyangyu.github.io/sitemap.xml
