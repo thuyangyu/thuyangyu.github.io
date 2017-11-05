@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<head>  
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+        
+
+        <img class="box" src="img/normal-face.png" id="robot-face" alt="Sorry, the image cannot be displayed">
+  
+        <div class="box">b</div>
+        <div class="box" id="map">
+<!--            <iframe id="map" src="" frameborder="0">c</iframe>-->
+        </div>
+        <div id="weather" class="box">d</div>
+        <div class="box">e</div>
+        <div class="box">f</div>
+    </div>
+    
+    
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+crossorigin="anonymous"></script>
+    
+<!--    modules-->
+    <script src="index.js"></script>>
+   
+<!--    test and build ups-->
+    <script>
+    
+    function unitTest(){
+        
+        //test getLocation();
+        console.log("test getLocation()");
+        getLocation();
+        
+        //getWeather();
+        //getNews(); 
+    }
+      
+    //Build Up
+    $(document).ready(function(){
+        //start test
+        unitTest();
+        
+        
+        //touch screen
+        $("#robot-face").click(function(e){
+        var speech = new SpeechSynthesisUtterance("hello, how are you");
+        window.speechSynthesis.speak(speech);
+    });
+    });
+   
+        
+        
+    </script>
+
+
+</body>
+</html>
