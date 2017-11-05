@@ -27,32 +27,60 @@ function handleTouchMoveEvent(event) {
     messageDiv.innerHTML = "touch moved to:" + event.touches[0].screenX.toFixed(2) + "," + event.touches[0].screenY.toFixed(2);
 }
 
+function getStreetView() {
+    //    console.log("start getStreetView function!");
+
+    MY_STREET_VIEW_API_KEY = "AIzaSyAGhvkC_P_G_rvjF05tJFd31SM3Z4FPf2E";
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            //            ltt = position.coords.latitude;
+            //            lng = position.coords.longitude;
+            ltt = 40.720032;
+            lng = -73.988354;
+            ltt = ltt.toString();
+            lng = lng.toString();
+            console.log("current ltt and lng are " + ltt + " " + lng);
+
+            url = "https://maps.googleapis.com/maps/api/streetview?size=600x300&location=" + ltt + "," + lng + "&key=" + MY_STREET_VIEW_API_KEY;
+
+            var mapDiv = document.getElementById("map");
+            mapDiv.innerHTML =
+                '<img src=' + url + '>';
+        });
+
+
+    } else {
+        console.log("failed open navigator.geolocation");
+    }
+}
+
 function getLocation() {
-//    console.log("start getLocation function!");
+    //    console.log("start getLocation function!");
+
+    MY_STREET_VIEW_API_KEY = "AIzaSyAGhvkC_P_G_rvjF05tJFd31SM3Z4FPf2E";
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
             ltt = position.coords.latitude;
-            lng = position.coords.longitude * -1;
+            lng = position.coords.longitude;
+            
+            var messageDiv = document.getElementById("message");
+            messageDiv.innerHTML =
+                "You are at " + ltt.toFixed(2) + "," + lng.toFixed(2);
+
             ltt = ltt.toString();
             lng = lng.toString();
-            MY_STREET_VIEW_API_KEY = "AIzaSyAGhvkC_P_G_rvjF05tJFd31SM3Z4FPf2E";
             console.log("current ltt and lng are " + ltt + " " + lng);
-            
-            
-            url = "https://maps.googleapis.com/maps/api/streetview?size=600x300&location=" + ltt + "," + lng + "&heading=151.78&pitch=-0.76&key="+MY_STREET_VIEW_API_KEY;
-            
-            //          url = 'https://www.google.com/maps/embed/v1/streetview?key='+key+'&location='+ltt+','+lng+'&heading=210&pitch=10&fov=35'
-//            $('#map').attr({src:url,height:256,width:260})
 
-            /* Get a reference to the map div */
-            var mapDiv = document.getElementById("map");
-
+            var mapDiv = document.getElementById("location");
             /* Plot a map with current location */
             mapDiv.innerHTML =
-                '<img src=' + url + '>';
-
+                '<img src="http://maps.googleapis.com/maps/api/staticmap?markers=' +
+                ltt + "," + lng +
+                '&zoom=18&size=400x200&sensor=false" />';
         });
-    }else{
+
+
+    } else {
         console.log("failed open navigator.geolocation");
     }
 }
