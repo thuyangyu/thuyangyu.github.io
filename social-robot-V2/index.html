@@ -1,7 +1,9 @@
 <!DOCTYPE html>
+<html>
 
 <head>
     <link rel="stylesheet" href="index.css">
+<!--    <link rel="stylesheet" href="/maps/documentation/javascript/demos/demos.css">-->
 </head>
 
 <body>
@@ -9,11 +11,11 @@
         <div class="box">
             <img src="img/normal-face.png" id="robot-face" alt="Sorry, the image cannot be displayed">
         </div>
-        <div class="box">b</div>
-        <div class="box" id="map"> </div>
+        <div class="box">status data here</div>
+        <div class="box" id="street-view"></div>
         <div class="box">
             <div id="message"></div>
-            <div id="location"></div>
+            <div id="map"></div>
         </div>
         <div class="box">e</div>
         <div class="box">f</div>
@@ -26,6 +28,10 @@
     <script src="index.js"></script>>
 
     <!--    test and build ups-->
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAg578n29OHdJBb3PxNIv7kETobKKt2BPM&callback=getLocation">
+    </script>
+    
     <script>
         function unitTest() {
 
@@ -35,7 +41,7 @@
 
             //test getLocation();
             console.log("test getLocation()");
-            getLocation();
+            //getLocation();
 
             //getWeather();
             //getNews(); 
@@ -54,8 +60,7 @@
             });
         });
     </script>
-
+    
 
 </body>
-
 </html>

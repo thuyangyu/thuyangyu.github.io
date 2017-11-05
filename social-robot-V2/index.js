@@ -43,7 +43,7 @@ function getStreetView() {
 
             url = "https://maps.googleapis.com/maps/api/streetview?size=600x300&location=" + ltt + "," + lng + "&key=" + MY_STREET_VIEW_API_KEY;
 
-            var mapDiv = document.getElementById("map");
+            var mapDiv = document.getElementById("street-view");
             mapDiv.innerHTML =
                 '<img src=' + url + '>';
         });
@@ -62,21 +62,38 @@ function getLocation() {
         navigator.geolocation.getCurrentPosition(function (position) {
             ltt = position.coords.latitude;
             lng = position.coords.longitude;
-            
+
             var messageDiv = document.getElementById("message");
             messageDiv.innerHTML =
                 "You are at " + ltt.toFixed(2) + "," + lng.toFixed(2);
 
-            ltt = ltt.toString();
-            lng = lng.toString();
             console.log("current ltt and lng are " + ltt + " " + lng);
 
-            var mapDiv = document.getElementById("location");
-            /* Plot a map with current location */
-            mapDiv.innerHTML =
-                '<img src="http://maps.googleapis.com/maps/api/staticmap?markers=' +
-                ltt + "," + lng +
-                '&zoom=18&size=400x200&sensor=false" />';
+            // Create a map object and specify the DOM element for display.
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: {
+                    lat: ltt,
+                    lng: lng
+                },
+                zoom: 16
+            });
+
+            var marker = new google.maps.Marker({
+                map: map,
+                position: {
+                    lat: ltt,
+                    lng: lng
+                },
+                title: 'You are here!'
+            });
+            
+
+            //            var mapDiv = document.getElementById("location");
+            //            /* Plot a map with current location */
+            //            mapDiv.innerHTML =
+            //                '<img src="http://maps.googleapis.com/maps/api/staticmap?markers=' +
+            //                ltt + "," + lng +
+            //                '&zoom=18&size=400x200&sensor=false" />';
         });
 
 
