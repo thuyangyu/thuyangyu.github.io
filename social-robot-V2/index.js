@@ -57,7 +57,6 @@ function getStreetView() {
 function getLocation() {
     //    console.log("start getLocation function!");
 
-    MY_STREET_VIEW_API_KEY = "AIzaSyAGhvkC_P_G_rvjF05tJFd31SM3Z4FPf2E";
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
             ltt = position.coords.latitude;
@@ -86,16 +85,7 @@ function getLocation() {
                 },
                 title: 'You are here!'
             });
-            
-
-            //            var mapDiv = document.getElementById("location");
-            //            /* Plot a map with current location */
-            //            mapDiv.innerHTML =
-            //                '<img src="http://maps.googleapis.com/maps/api/staticmap?markers=' +
-            //                ltt + "," + lng +
-            //                '&zoom=18&size=400x200&sensor=false" />';
         });
-
 
     } else {
         console.log("failed open navigator.geolocation");
@@ -109,16 +99,23 @@ function getWeather() {
         lng = position.coords.longitude
         lat = lat.toString()
         lng = lng.toString()
-        url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + lng + '&key=AIzaSyD3N7NC_ztTEmHt8BugovKtg1sHCOyfs6Y'
+
+
+        MY_WEATHER_API_KEY = "b1b15e88fa797225412429c1c50c122a1";
+        MY_GOOGLE_API = "AIzaSyAGhvkC_P_G_rvjF05tJFd31SM3Z4FPf2E";
+        url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + lng + '&key=' + MY_GOOGLE_API;
+
+        console.log("start ajax to get weather");
+        console.log(url);
+
         $.getJSON(url, function (res) {
-            results = res['results']
-            city = results[0]['address_components'][3]['long_name']
-            url = "'http://openweathermap.org/data/2.5/weather?q=" + city + "&appid=b1b15e88fa797225412429c1c50c122a1'"
-            $.getJSON('https://query.yahooapis.com/v1/public/yql', {
-                q: "select * from json where url=" + url,
-                format: 'json'
-            }, function (data) {
-                data = data.query.results.json
+            results = res['results'];
+            city = results[0]['address_components'][3]['long_name'];
+            //console.log(city);
+            url = "http://openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + MY_WEATHER_API_KEY;
+            console.log(url);
+            $.getJSON(url, function (data) {
+                //data = JSON.parse(data);
                 city = data['name']
                     //description = data['weather'][0]['description']
                 humidity = data['main']['humidity']
@@ -134,6 +131,8 @@ function getWeather() {
                 month = months[time.getMonth()]
                 date = time.getDate()
                 weatherText = 'city: ' + city + '<br>Date: ' + year + ' ' + month + ' ' + date + '<br>humidity: ' + humidity + '<br>pressure: ' + pressure + '<br>averate temperature: ' + temp_avg + '<br>max temperature: ' + temp_max + '<br>min temperature: ' + temp_min
+
+                console.log(weatherText);
                 $('#weather').html(' <h1>Weather Info</h1>' + weatherText)
             })
         })
@@ -184,4 +183,46 @@ function getNews() {
             })
         })
     })
+}
+
+
+a = {
+    "coord": {
+        "lon": -121.82,
+        "lat": 47.47
+    },
+    "weather": [{
+        "id": 701,
+        "main": "Mist",
+        "description": "mist",
+        "icon": "50n"
+    }],
+    "base": "stations",
+    "main": {
+        "temp": 1.86,
+        "pressure": 1019,
+        "humidity": 100,
+        "temp_min": 1,
+        "temp_max": 2
+    },
+    "visibility": 16093,
+    "wind": {
+        "speed": 0.7,
+        "deg": 185.001
+    },
+    "clouds": {
+        "all": 90
+    },
+    "dt": 1509948900,
+    "sys": {
+        "type": 1,
+        "id": 2946,
+        "message": 0.0059,
+        "country": "US",
+        "sunrise": 1509980373,
+        "sunset": 1510015300
+    },
+    "id": 5799783,
+    "name": "King County",
+    "cod": 200
 }

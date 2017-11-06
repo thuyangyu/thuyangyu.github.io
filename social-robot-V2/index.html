@@ -3,7 +3,7 @@
 
 <head>
     <link rel="stylesheet" href="index.css">
-<!--    <link rel="stylesheet" href="/maps/documentation/javascript/demos/demos.css">-->
+    <!--    <link rel="stylesheet" href="/maps/documentation/javascript/demos/demos.css">-->
 </head>
 
 <body>
@@ -17,7 +17,7 @@
             <div id="message"></div>
             <div id="map"></div>
         </div>
-        <div class="box">e</div>
+        <div class="box" id="weather"></div>
         <div class="box">f</div>
     </div>
 
@@ -27,11 +27,14 @@
     <!--    modules-->
     <script src="index.js"></script>>
 
-    <!--    test and build ups-->
-    <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAg578n29OHdJBb3PxNIv7kETobKKt2BPM&callback=getLocation">
+    <!--     online apis-->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAg578n29OHdJBb3PxNIv7kETobKKt2BPM&callback=getLocation">
     </script>
-    
+
+
+
+    <!--    test and build ups-->
+
     <script>
         function unitTest() {
 
@@ -40,10 +43,12 @@
             getStreetView();
 
             //test getLocation();
-            console.log("test getLocation()");
+            //console.log("test getLocation()");
             //getLocation();
 
-            //getWeather();
+            //test getWeather()
+            console.log("test getStreetView()");
+            getWeather();
             //getNews(); 
         }
 
@@ -52,7 +57,6 @@
             //start test
             unitTest();
 
-
             //touch screen
             $("#robot-face").click(function (e) {
                 var speech = new SpeechSynthesisUtterance("hello, how are you");
@@ -60,7 +64,8 @@
             });
         });
     </script>
-    
+
 
 </body>
+
 </html>
