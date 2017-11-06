@@ -18,7 +18,7 @@
             <div id="map"></div>
         </div>
         <div class="box" id="weather"></div>
-        <div class="box">f</div>
+        <div class="box" id="news"></div>
     </div>
 
 
@@ -28,10 +28,9 @@
     <script src="index.js"></script>>
 
     <!--     online apis-->
+    <!--    getLocation-->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAg578n29OHdJBb3PxNIv7kETobKKt2BPM&callback=getLocation">
     </script>
-
-
 
     <!--    test and build ups-->
 
@@ -50,6 +49,10 @@
             console.log("test getStreetView()");
             getWeather();
             //getNews(); 
+            
+            //test getNews()
+            console.log("test getNews");
+            getNews();
         }
 
         //Build Up

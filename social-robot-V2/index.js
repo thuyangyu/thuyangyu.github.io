@@ -133,40 +133,38 @@ function getWeather() {
                 weatherText = 'city: ' + city + '<br>Date: ' + year + ' ' + month + ' ' + date + '<br>humidity: ' + humidity + '<br>pressure: ' + pressure + '<br>averate temperature: ' + temp_avg + '<br>max temperature: ' + temp_max + '<br>min temperature: ' + temp_min
 
                 console.log(weatherText);
-                $('#weather').html(' <h1>Weather Info</h1>' + weatherText)
+                $('#weather').html(' <h2>Weather Info</h2>' + weatherText)
             })
         })
     })
 }
 
 function getNews() {
-    var text = $('#category').text()
-    if (text === 'Category' || text === 'Language') {
-        alert('Please select news category and language')
-        return
-    }
     newsKey = '4e9089688f0a454c95b59f97f4b994d0'
     navigator.geolocation.getCurrentPosition(function (position) {
         lat = position.coords.latitude
         lng = position.coords.longitude
         lat = lat.toString()
         lng = lng.toString()
+
         url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + lng + '&key=AIzaSyD3N7NC_ztTEmHt8BugovKtg1sHCOyfs6Y'
+        console.log("city url here");
+        console.log(url);
+
         $.getJSON(url, function (res) {
             results = res['results']
             city = results[0]['address_components'][3]['long_name']
             country = results[0]['address_components'][6]['short_name']
                 // get News  exp:  https://newsapi.org/v1/sources?language=en
-            var language = null
-            if ($('#language').text() === 'English') {
-                language = 'en'
-            } else if ($('#language').text() === 'French') {
-                language = 'fr'
-            } else {
-                language = 'de'
-            }
-            category = $('#category').text()
-            url = 'https://newsapi.org/v1/sources?language=' + language + '&category=' + category + '&country=us'
+            
+            category = "business";
+            url = 'https://newsapi.org/v1/sources?language=en' + '&category=' + category + '&country=us'
+
+            console.log("news url here");
+            console.log(url);
+            
+            newsDescriptions = [];
+            newsList = [];
             $.getJSON(url, function (res) {
                 newsSources = res['sources']
                 newsList = $('#newsList')
@@ -179,10 +177,17 @@ function getNews() {
                     innerHtml = "<li><a href='" + url + "'>" + name + "</a>" + "<a class='play' href='#' id=" + id + " style='float:right'>play</div>"
                     newsList.append(innerHtml)
                 }
-                visualizeJson(res['sources'])
+                console.log("newsList");
+                console.log(newsList);
+                console.log("newsDescriptions");
+                console.log(newsDescriptions);
+                
+                var news_text = '<h2>News Descriptions </h2>';
+                for(var i = 0; i < newsDescriptions.length; i++){
+                    news_text += newsDescriptions[i] + '<hr>';
+                }
+                $('#news').html(news_text);
             })
         })
     })
 }
-
-
