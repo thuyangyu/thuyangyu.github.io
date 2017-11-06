@@ -112,7 +112,7 @@ function getWeather() {
             results = res['results'];
             city = results[0]['address_components'][3]['long_name'];
             //console.log(city);
-            url = "http://openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + MY_WEATHER_API_KEY;
+            url = "https://openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + MY_WEATHER_API_KEY;
             console.log(url);
             $.getJSON(url, function (data) {
                 //data = JSON.parse(data);
@@ -186,43 +186,3 @@ function getNews() {
 }
 
 
-a = {
-    "coord": {
-        "lon": -121.82,
-        "lat": 47.47
-    },
-    "weather": [{
-        "id": 701,
-        "main": "Mist",
-        "description": "mist",
-        "icon": "50n"
-    }],
-    "base": "stations",
-    "main": {
-        "temp": 1.86,
-        "pressure": 1019,
-        "humidity": 100,
-        "temp_min": 1,
-        "temp_max": 2
-    },
-    "visibility": 16093,
-    "wind": {
-        "speed": 0.7,
-        "deg": 185.001
-    },
-    "clouds": {
-        "all": 90
-    },
-    "dt": 1509948900,
-    "sys": {
-        "type": 1,
-        "id": 2946,
-        "message": 0.0059,
-        "country": "US",
-        "sunrise": 1509980373,
-        "sunset": 1510015300
-    },
-    "id": 5799783,
-    "name": "King County",
-    "cod": 200
-}
