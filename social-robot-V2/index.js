@@ -163,7 +163,6 @@ function getNews() {
             console.log("news url here");
             console.log(url);
             
-            newsDescriptions = [];
             newsList = [];
             $.getJSON(url, function (res) {
                 newsSources = res['sources']
@@ -172,19 +171,16 @@ function getNews() {
                 for (var i = 0; i < newsSources.length; i++) {
                     name = newsSources[i].name
                     url = newsSources[i].url
-                    newsDescriptions.push(newsSources[i].description)
                     id = "news" + i + ""
-                    innerHtml = "<li><a href='" + url + "'>" + name + "</a>" + "<a class='play' href='#' id=" + id + " style='float:right'>play</div>"
-                    newsList.append(innerHtml)
+                    innerHtml = "<a href=" + url + ">" + newsSources[i].description + "</a>"
+                    newsList.push(innerHtml)
                 }
                 console.log("newsList");
                 console.log(newsList);
-                console.log("newsDescriptions");
-                console.log(newsDescriptions);
                 
                 var news_text = '<h2>News Descriptions </h2>';
-                for(var i = 0; i < newsDescriptions.length; i++){
-                    news_text += newsDescriptions[i] + '<hr>';
+                for(var i = 0; i < newsList.length; i++){
+                    news_text += newsList[i] + '<hr>';
                 }
                 $('#news').html(news_text);
             })

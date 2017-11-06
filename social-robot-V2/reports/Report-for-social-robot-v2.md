@@ -31,7 +31,7 @@ The robot gather geolocation information from device geolocation sensor and then
 3. Current local weather.
 4. local news.
 
-![]()
+![apis](apis.png)
 
 ##### Orientation Sensor
 
