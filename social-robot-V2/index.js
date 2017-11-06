@@ -11,14 +11,9 @@ function handleTouchEvent(event) {
     if (event.type === "touchstart") {
         event.preventDefault();
     }
-
-    /* Get the list of all touches currently on the screen */
-    var allTouches = event.touches;
-    /* Get the length of the list*/
-    var allTouchesLength = allTouches.length;
-    /* Get a div element to display the number*/
-    var messageDiv = document.getElementById("message");
-    messageDiv.innerHTML = "# of touches:" + allTouchesLength;
+    
+    var speech = new SpeechSynthesisUtterance("hello, how are you");
+    window.speechSynthesis.speak(speech);
 }
 
 /*This function handles touch moves*/
