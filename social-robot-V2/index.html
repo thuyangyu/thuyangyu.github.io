@@ -20,55 +20,49 @@
         <div class="box" id="weather"></div>
         <div class="box" id="news"></div>
     </div>
-
-
+    <!-- Framework Scripts -->
+    <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-
-    <!--    modules-->
+    <!-- Modules -->
     <script src="index.js"></script>>
-
-    <!--     online apis-->
-    <!--    getLocation-->
+    <!-- Online Apis -->
+    <!-- GetLocation -->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAg578n29OHdJBb3PxNIv7kETobKKt2BPM&callback=getLocation">
     </script>
-
     <!--    test and build ups-->
-
     <script>
-        function unitTest() {
+    function unitTest() {
 
-            //test getStreetView();
-            console.log("test getStreetView()");
-            getStreetView();
+        //test getStreetView();
+        console.log("test getStreetView()");
+        getStreetView();
 
-            //test getLocation();
-            //console.log("test getLocation()");
-            //getLocation();
+        //test getLocation();
+        //console.log("test getLocation()");
+        //getLocation();
 
-            //test getWeather()
-            console.log("test getStreetView()");
-            getWeather();
-            //getNews(); 
-            
-            //test getNews()
-            console.log("test getNews");
-            getNews();
-        }
+        //test getWeather()
+        console.log("test getStreetView()");
+        getWeather();
+        //getNews(); 
 
-        //Build Up
-        $(document).ready(function () {
-            //start test
-            unitTest();
+        //test getNews()
+        console.log("test getNews");
+        getNews();
+    }
 
-            //touch screen
-            $("#robot-face").click(function (e) {
-                var speech = new SpeechSynthesisUtterance("hello, how are you");
-                window.speechSynthesis.speak(speech);
-            });
+    //Build Up
+    $(document).ready(function() {
+        //start test
+        unitTest();
+
+        //touch screen
+        $("#robot-face").click(function(e) {
+            var speech = new SpeechSynthesisUtterance("hello, how are you");
+            window.speechSynthesis.speak(speech);
         });
+    });
     </script>
-
-
 </body>
 
 </html>
