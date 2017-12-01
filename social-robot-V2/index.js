@@ -1,19 +1,22 @@
-var acceleration_voice = 0;
+//Function Speech Out
 var synth = window.speechSynthesis;
 var auch = new SpeechSynthesisUtterance("Auch, please be careful about me. Thanks!");
+
 function speak_auch() {
     var amISpeaking = synth.speaking;
-        if(amISpeaking == false){   
-            synth.speak(auch);
-            acceleration = 0;
-        }
+    if (amISpeaking == false) {
+        synth.speak(auch);
+        acceleration = 0;
+    }
 }
+
 //Collect Sensor Data
 /*This function is called when the page is loaded*/
 function handleLoadEvent() {
     window.addEventListener("touchstart", handleTouchEvent, false);
     window.addEventListener("touchend", handleTouchEvent, false);
     //window.addEventListener("touchmove", handleTouchMoveEvent, false);
+    window.addEventListener("deviceorientation", handleDeviceOrientationEvent);
     if (window.DeviceMotionEvent) {
         window.addEventListener("devicemotion", handleDeviceMotionEvent, false);
     } else {
@@ -21,6 +24,20 @@ function handleLoadEvent() {
         messageDiv.innerHTML = "DeviceMotionEvent not supported"
     }
 }
+
+/*This function handles device orientation event */
+function handleDeviceOrientationEvent(event) {
+  var messageDiv = document.getElementById("tablet-orientation");
+
+  var alpha = event.alpha;
+  var beta = event.beta;
+  var gamma = event.gamma;
+
+  messageDiv.innerHTML = "alpha:" + alpha.toFixed(1) + " deg <br>";
+  messageDiv.innerHTML += "beta:" + beta.toFixed(1) + " deg <br>";
+  messageDiv.innerHTML += "gamma:" + gamma.toFixed(1) + " deg";
+}
+
 
 /*This function handles touch events*/
 function handleTouchEvent(event) {
@@ -50,10 +67,10 @@ function handleDeviceMotionEvent(event) {
     var accY = event.acceleration.y;
     var accZ = event.acceleration.z;
 
-    var acceleration = Math.sqrt((accX * accX + accY * accY + accZ * accZ)/3);
+    var acceleration = Math.sqrt((accX * accX + accY * accY + accZ * accZ) / 3);
 
     if (parseFloat(acceleration).toFixed(1) > parseFloat("3").toFixed(1)) {
-        speak_auch(); 
+        speak_auch();
     }
 
     //test print
