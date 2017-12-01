@@ -45,12 +45,16 @@ function handleDeviceMotionEvent(event) {
   var accY = event.acceleration.y;
   var accZ = event.acceleration.z;
 
+  var acceleration = Math.sqrt(accX * accX + accY * accY + accZ * accZ);
+
+
   //test print
   //console.log("Acc-X:" + accX.toFixed(1) + " m/s^2 <br>");
 
   messageDiv.innerHTML = "Acc-X:" + accX.toFixed(1) + " m/s^2 <br>";
   messageDiv.innerHTML += "Acc-Y:" + accY.toFixed(1) + " m/s^2 <br>";
-  messageDiv.innerHTML += "Acc-Z:" + accZ.toFixed(1) + " m/s^2";
+  messageDiv.innerHTML += "Acc-Z:" + accZ.toFixed(1) + " m/s^2 <br>";
+  messageDiv.innerHTML += "Acc" + acceleration + "m/s^2";
 }
 
 
