@@ -38,9 +38,9 @@ function handleDeviceMotionEvent(event) {
   var accZ = event.acceleration.z;
 
   var acceleration = Math.sqrt(accX * accX + accY * accY + accZ * accZ);
-  if(acceleration > 5){
-    var speech = new SpeechSynthesisUtterance("Auch, please be careful about me. Thanks!");
-    window.speechSynthesis.speak(speech);
+  if(parseFloat(acceleration.toFixed(1)) > parseFloat("2").toFixed(1)){
+    var auch = new SpeechSynthesisUtterance("Auch, please be careful about me. Thanks!");
+    window.speechSynthesis.speak(auch);
     acceleration = 0;
   }
 
