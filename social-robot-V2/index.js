@@ -49,6 +49,7 @@ function handleDeviceMotionEvent(event) {
   if(acceleration > 1){
     var speech = new SpeechSynthesisUtterance("Auch, please be careful about me. Thanks!");
     window.speechSynthesis.speak(speech);
+    acceleration = 0;
   }
 
   //test print
