@@ -5,7 +5,7 @@ function handleLoadEvent() {
     window.addEventListener("touchend", handleTouchEvent, false);
     window.addEventListener("touchmove", handleTouchMoveEvent, false);
       if (window.DeviceMotionEvent) {
-    window.addEventListener("devicemotion", handleDeviceMotionEvent);
+    window.addEventListener("devicemotion", handleDeviceMotionEvent, false);
   }
   else {
     var messageDiv = document.getElementById("message");
@@ -19,8 +19,6 @@ function handleTouchEvent(event) {
     if (event.type === "touchstart") {
         event.preventDefault();
     }
-    //var speech = new SpeechSynthesisUtterance("hello, how are you");
-    //window.speechSynthesis.speak(speech);
 }
 
 /*This function handles touch moves*/
@@ -40,7 +38,7 @@ function handleDeviceMotionEvent(event) {
   var accZ = event.acceleration.z;
 
   var acceleration = Math.sqrt(accX * accX + accY * accY + accZ * accZ);
-  if(acceleration > 1){
+  if(acceleration > 2){
     var speech = new SpeechSynthesisUtterance("Auch, please be careful about me. Thanks!");
     window.speechSynthesis.speak(speech);
     acceleration = 0;
