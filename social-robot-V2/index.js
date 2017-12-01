@@ -22,6 +22,37 @@ function handleTouchMoveEvent(event) {
     messageDiv.innerHTML = "touch moved to:" + event.touches[0].screenX.toFixed(2) + "," + event.touches[0].screenY.toFixed(2);
 }
 
+
+//Collect Sensor Data
+/*This function is called when the page is loaded*/
+function handleLoadEvent() {
+  if (window.DeviceMotionEvent) {
+    window.addEventListener("devicemotion", handleDeviceMotionEvent);
+  }
+  else {
+    var messageDiv = document.getElementById("message");
+    messageDiv.innerHTML = "DeviceMotionEvent not supported"
+  }
+}
+
+/*This function handles deviceorientation events*/
+function handleDeviceMotionEvent(event) {
+  var messageDiv = document.getElementById("tablet-status");
+
+  /*You can also use event.accelerationIncludingGravity which should have a constant downward acceleration*/
+  
+  var accX = event.acceleration.x;
+  var accY = event.acceleration.y;
+  var accZ = event.acceleration.z;
+
+  messageDiv.innerHTML = "Acc-X:" + accX.toFixed(1) + " m/s^2 <br>";
+  messageDiv.innerHTML += "Acc-Y:" + accY.toFixed(1) + " m/s^2 <br>";
+  messageDiv.innerHTML += "Acc-Z:" + accZ.toFixed(1) + " m/s^2";
+}
+
+
+
+
 function getStreetView() {
     //    console.log("start getStreetView function!");
 
