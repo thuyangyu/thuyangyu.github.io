@@ -1,5 +1,13 @@
 var acceleration_voice = 0;
-
+var synth = window.speechSynthesis;
+var auch = new SpeechSynthesisUtterance("Auch, please be careful about me. Thanks!");
+function speak_auch() {
+    var amISpeaking = synth.speaking;
+        if(amISpeaking == false){   
+            synth.speak(auch);
+            acceleration = 0;
+        }
+}
 //Collect Sensor Data
 /*This function is called when the page is loaded*/
 function handleLoadEvent() {
@@ -45,12 +53,7 @@ function handleDeviceMotionEvent(event) {
     var acceleration = Math.sqrt(accX * accX + accY * accY + accZ * accZ);
 
     if (parseFloat(acceleration).toFixed(1) > parseFloat("2").toFixed(1)) {
-        var amISpeaking = speechSynthesisInstance.speaking;
-        if(amISpeaking == false){
-            var auch = new SpeechSynthesisUtterance("Auch, please be careful about me. Thanks!");
-            window.speechSynthesis.speak(auch);
-            acceleration = 0;
-        }
+        speak_auch();
     }
 
     //test print
