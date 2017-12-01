@@ -19,8 +19,8 @@ function handleTouchEvent(event) {
     if (event.type === "touchstart") {
         event.preventDefault();
     }
-    var speech = new SpeechSynthesisUtterance("hello, how are you");
-    window.speechSynthesis.speak(speech);
+    //var speech = new SpeechSynthesisUtterance("hello, how are you");
+    //window.speechSynthesis.speak(speech);
 }
 
 /*This function handles touch moves*/
