@@ -32,7 +32,7 @@ function handleTouchMoveEvent(event) {
 /*This function handles deviceorientation events*/
 function handleDeviceMotionEvent(event) {
   var messageDiv = document.getElementById("tablet-status");
-  //alert("DeviceMotionEventTriggered!");
+  //alert("DeviceMotionEventTriggered!"); 
   /*You can also use event.accelerationIncludingGravity which should have a constant downward acceleration*/
   
   var accX = event.acceleration.x;
