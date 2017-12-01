@@ -15,8 +15,9 @@ function handleLoadEvent() {
 /*This function handles touch events*/
 function handleTouchEvent(event) {
     /* Prevent the default browser action to touch events*/
-    if (event.type === "touchstart") {
+    if (event.type == "touchstart") {
         event.preventDefault();
+        return;
     }
     //if event.type = touchend
     var hello = new SpeechSynthesisUtterance("hello, how are you");
@@ -40,7 +41,7 @@ function handleDeviceMotionEvent(event) {
     var accZ = event.acceleration.z;
 
     var acceleration = Math.sqrt(accX * accX + accY * accY + accZ * accZ);
-    if (parseFloat(acceleration.toFixed(1)) > parseFloat("2").toFixed(1)) {
+    if (parseFloat(acceleration).toFixed(1) > parseFloat("2").toFixed(1)) {
         var auch = new SpeechSynthesisUtterance("Auch, please be careful about me. Thanks!");
         window.speechSynthesis.speak(auch);
         acceleration = 0;
