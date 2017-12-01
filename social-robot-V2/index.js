@@ -52,7 +52,7 @@ function handleDeviceMotionEvent(event) {
 
     var acceleration = Math.sqrt((accX * accX + accY * accY + accZ * accZ)/3);
 
-    if (parseFloat(acceleration).toFixed(1) > parseFloat("4").toFixed(1)) {
+    if (parseFloat(acceleration).toFixed(1) > parseFloat("3").toFixed(1)) {
         speak_auch(); 
     }
 
