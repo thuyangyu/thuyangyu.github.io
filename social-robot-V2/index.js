@@ -3,14 +3,13 @@
 function handleLoadEvent() {
     window.addEventListener("touchstart", handleTouchEvent, false);
     window.addEventListener("touchend", handleTouchEvent, false);
-    window.addEventListener("touchmove", handleTouchMoveEvent, false);
-      if (window.DeviceMotionEvent) {
-    window.addEventListener("devicemotion", handleDeviceMotionEvent, false);
-  }
-  else {
-    var messageDiv = document.getElementById("message");
-    messageDiv.innerHTML = "DeviceMotionEvent not supported"
-  } 
+    //window.addEventListener("touchmove", handleTouchMoveEvent, false);
+    if (window.DeviceMotionEvent) {
+        window.addEventListener("devicemotion", handleDeviceMotionEvent, false);
+    } else {
+        var messageDiv = document.getElementById("message");
+        messageDiv.innerHTML = "DeviceMotionEvent not supported"
+    }
 }
 
 /*This function handles touch events*/
@@ -19,6 +18,11 @@ function handleTouchEvent(event) {
     if (event.type === "touchstart") {
         event.preventDefault();
     }
+
+    //if event.type = touchend
+    var hello = new SpeechSynthesisUtterance("hello, how are you");
+    window.speechSynthesis.speak(hello);
+
 }
 
 /*This function handles touch moves*/
@@ -29,28 +33,28 @@ function handleTouchEvent(event) {
 
 /*This function handles deviceorientation events*/
 function handleDeviceMotionEvent(event) {
-  var messageDiv = document.getElementById("tablet-status");
-  //alert("DeviceMotionEventTriggered!"); 
-  /*You can also use event.accelerationIncludingGravity which should have a constant downward acceleration*/
-  
-  var accX = event.acceleration.x;
-  var accY = event.acceleration.y;
-  var accZ = event.acceleration.z;
+    var messageDiv = document.getElementById("tablet-status");
+    //alert("DeviceMotionEventTriggered!"); 
+    /*You can also use event.accelerationIncludingGravity which should have a constant downward acceleration*/
 
-  var acceleration = Math.sqrt(accX * accX + accY * accY + accZ * accZ);
-  if(parseFloat(acceleration.toFixed(1)) > parseFloat("2").toFixed(1)){
-    var auch = new SpeechSynthesisUtterance("Auch, please be careful about me. Thanks!");
-    window.speechSynthesis.speak(auch);
-    acceleration = 0;
-  }
+    var accX = event.acceleration.x;
+    var accY = event.acceleration.y;
+    var accZ = event.acceleration.z;
 
-  //test print
-  //console.log("Acc-X:" + accX.toFixed(1) + " m/s^2 <br>");
+    var acceleration = Math.sqrt(accX * accX + accY * accY + accZ * accZ);
+    if (parseFloat(acceleration.toFixed(1)) > parseFloat("2").toFixed(1)) {
+        var auch = new SpeechSynthesisUtterance("Auch, please be careful about me. Thanks!");
+        window.speechSynthesis.speak(auch);
+        acceleration = 0;
+    }
 
-  messageDiv.innerHTML = "Acc-X:" + accX.toFixed(1) + " m/s^2 <br>";
-  messageDiv.innerHTML += "Acc-Y:" + accY.toFixed(1) + " m/s^2 <br>";
-  messageDiv.innerHTML += "Acc-Z:" + accZ.toFixed(1) + " m/s^2 <br>";
-  messageDiv.innerHTML += "Acc" + acceleration.toFixed(1) + "m/s^2";
+    //test print
+    //console.log("Acc-X:" + accX.toFixed(1) + " m/s^2 <br>");
+
+    messageDiv.innerHTML = "Acc-X:" + accX.toFixed(1) + " m/s^2 <br>";
+    messageDiv.innerHTML += "Acc-Y:" + accY.toFixed(1) + " m/s^2 <br>";
+    messageDiv.innerHTML += "Acc-Z:" + accZ.toFixed(1) + " m/s^2 <br>";
+    messageDiv.innerHTML += "Acc" + acceleration.toFixed(1) + "m/s^2";
 }
 
 
@@ -61,7 +65,7 @@ function getStreetView() {
 
     MY_STREET_VIEW_API_KEY = "AIzaSyAGhvkC_P_G_rvjF05tJFd31SM3Z4FPf2E";
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (position) {
+        navigator.geolocation.getCurrentPosition(function(position) {
             //            ltt = position.coords.latitude;
             //            lng = position.coords.longitude;
             ltt = 40.720032;
@@ -87,7 +91,7 @@ function getLocation() {
     //    console.log("start getLocation function!");
 
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (position) {
+        navigator.geolocation.getCurrentPosition(function(position) {
             ltt = position.coords.latitude;
             lng = position.coords.longitude;
 
@@ -123,7 +127,7 @@ function getLocation() {
 
 
 function getWeather() {
-    navigator.geolocation.getCurrentPosition(function (position) {
+    navigator.geolocation.getCurrentPosition(function(position) {
         lat = position.coords.latitude
         lng = position.coords.longitude
         lat = lat.toString()
@@ -137,16 +141,16 @@ function getWeather() {
         console.log("start ajax to get weather");
         console.log(url);
 
-        $.getJSON(url, function (res) {
+        $.getJSON(url, function(res) {
             results = res['results'];
             city = results[0]['address_components'][3]['long_name'];
             //console.log(city);
             url = "https://openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + MY_WEATHER_API_KEY;
             console.log(url);
-            $.getJSON(url, function (data) {
+            $.getJSON(url, function(data) {
                 //data = JSON.parse(data);
                 city = data['name']
-                    //description = data['weather'][0]['description']
+                //description = data['weather'][0]['description']
                 humidity = data['main']['humidity']
                 pressure = data['main']['pressure']
                 temp_avg = data['main']['temp']
@@ -170,7 +174,7 @@ function getWeather() {
 
 function getNews() {
     newsKey = '4e9089688f0a454c95b59f97f4b994d0'
-    navigator.geolocation.getCurrentPosition(function (position) {
+    navigator.geolocation.getCurrentPosition(function(position) {
         lat = position.coords.latitude
         lng = position.coords.longitude
         lat = lat.toString()
@@ -180,20 +184,20 @@ function getNews() {
         console.log("city url here");
         console.log(url);
 
-        $.getJSON(url, function (res) {
+        $.getJSON(url, function(res) {
             results = res['results']
             city = results[0]['address_components'][3]['long_name']
             country = results[0]['address_components'][6]['short_name']
-                // get News  exp:  https://newsapi.org/v1/sources?language=en
-            
+            // get News  exp:  https://newsapi.org/v1/sources?language=en
+
             category = "business";
             url = 'https://newsapi.org/v1/sources?language=en' + '&category=' + category + '&country=us'
 
             console.log("news url here");
             console.log(url);
-            
+
             newsList = [];
-            $.getJSON(url, function (res) {
+            $.getJSON(url, function(res) {
                 newsSources = res['sources']
                 newsList = $('#newsList')
                 newsList.html('')
@@ -206,9 +210,9 @@ function getNews() {
                 }
                 console.log("newsList");
                 console.log(newsList);
-                
+
                 var news_text = '<h2>News Descriptions </h2>';
-                for(var i = 0; i < newsList.length; i++){
+                for (var i = 0; i < newsList.length; i++) {
                     news_text += newsList[i] + '<hr>';
                 }
                 $('#news').html(news_text);
