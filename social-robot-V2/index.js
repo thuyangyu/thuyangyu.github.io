@@ -22,10 +22,10 @@ function handleTouchEvent(event) {
 }
 
 /*This function handles touch moves*/
-function handleTouchMoveEvent(event) {
-    var messageDiv = document.getElementById("touch-move-message");
-    messageDiv.innerHTML = "touch moved to:" + event.touches[0].screenX.toFixed(2) + "," + event.touches[0].screenY.toFixed(2);
-}
+// function handleTouchMoveEvent(event) {
+//     var messageDiv = document.getElementById("touch-move-message");
+//     messageDiv.innerHTML = "touch moved to:" + event.touches[0].screenX.toFixed(2) + "," + event.touches[0].screenY.toFixed(2);
+// }
 
 /*This function handles deviceorientation events*/
 function handleDeviceMotionEvent(event) {
