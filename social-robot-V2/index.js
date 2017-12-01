@@ -48,8 +48,7 @@ function handleDeviceMotionEvent(event) {
   //test print
   //console.log("Acc-X:" + accX.toFixed(1) + " m/s^2 <br>");
 
-  messageDiv.innerHTML = "Acc-X:" + accX + " m/s^2 <br>";
-  messageDiv.innerHTML += "Acc-X:" + accX.toFixed(1) + " m/s^2 <br>";
+  messageDiv.innerHTML = "Acc-X:" + accX.toFixed(1) + " m/s^2 <br>";
   messageDiv.innerHTML += "Acc-Y:" + accY.toFixed(1) + " m/s^2 <br>";
   messageDiv.innerHTML += "Acc-Z:" + accZ.toFixed(1) + " m/s^2";
 }
