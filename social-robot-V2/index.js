@@ -53,7 +53,7 @@ function handleDeviceMotionEvent(event) {
     var acceleration = Math.sqrt(accX * accX + accY * accY + accZ * accZ);
 
     if (parseFloat(acceleration).toFixed(1) > parseFloat("6").toFixed(1)) {
-        speak_auch();
+        speak_auch(); 
     }
 
     //test print
