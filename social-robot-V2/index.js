@@ -19,14 +19,13 @@ function handleTouchEvent(event) {
     if (event.type === "touchstart") {
         event.preventDefault();
     }
-    
     var speech = new SpeechSynthesisUtterance("hello, how are you");
     window.speechSynthesis.speak(speech);
 }
 
 /*This function handles touch moves*/
 function handleTouchMoveEvent(event) {
-    var messageDiv = document.getElementById("message");
+    var messageDiv = document.getElementById("touch-move-message");
     messageDiv.innerHTML = "touch moved to:" + event.touches[0].screenX.toFixed(2) + "," + event.touches[0].screenY.toFixed(2);
 }
 
