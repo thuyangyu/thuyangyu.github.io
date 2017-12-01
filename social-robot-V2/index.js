@@ -38,7 +38,7 @@ function handleLoadEvent() {
 /*This function handles deviceorientation events*/
 function handleDeviceMotionEvent(event) {
   var messageDiv = document.getElementById("tablet-status");
-  alert("Device moved!");
+  //alert("Device moved!");
   /*You can also use event.accelerationIncludingGravity which should have a constant downward acceleration*/
   
   var accX = event.acceleration.x;
@@ -46,7 +46,7 @@ function handleDeviceMotionEvent(event) {
   var accZ = event.acceleration.z;
 
   //test print
-  console.log("Acc-X:" + accX.toFixed(1) + " m/s^2 <br>");
+  //console.log("Acc-X:" + accX.toFixed(1) + " m/s^2 <br>");
 
 
   messageDiv.innerHTML = "Acc-X:" + accX.toFixed(1) + " m/s^2 <br>";
