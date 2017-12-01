@@ -32,13 +32,13 @@ function handleLoadEvent() {
   else {
     var messageDiv = document.getElementById("message");
     messageDiv.innerHTML = "DeviceMotionEvent not supported"
-  }
+  } 
 }
 
 /*This function handles deviceorientation events*/
 function handleDeviceMotionEvent(event) {
   var messageDiv = document.getElementById("tablet-status");
-
+  alert("Device moved!");
   /*You can also use event.accelerationIncludingGravity which should have a constant downward acceleration*/
   
   var accX = event.acceleration.x;
