@@ -1,8 +1,16 @@
+//Collect Sensor Data
 /*This function is called when the page is loaded*/
 function handleLoadEvent() {
     window.addEventListener("touchstart", handleTouchEvent, false);
     window.addEventListener("touchend", handleTouchEvent, false);
     window.addEventListener("touchmove", handleTouchMoveEvent, false);
+      if (window.DeviceMotionEvent) {
+    window.addEventListener("devicemotion", handleDeviceMotionEvent);
+  }
+  else {
+    var messageDiv = document.getElementById("message");
+    messageDiv.innerHTML = "DeviceMotionEvent not supported"
+  } 
 }
 
 /*This function handles touch events*/
@@ -20,19 +28,6 @@ function handleTouchEvent(event) {
 function handleTouchMoveEvent(event) {
     var messageDiv = document.getElementById("message");
     messageDiv.innerHTML = "touch moved to:" + event.touches[0].screenX.toFixed(2) + "," + event.touches[0].screenY.toFixed(2);
-}
-
-
-//Collect Sensor Data
-/*This function is called when the page is loaded*/
-function handleLoadEvent() {
-  if (window.DeviceMotionEvent) {
-    window.addEventListener("devicemotion", handleDeviceMotionEvent);
-  }
-  else {
-    var messageDiv = document.getElementById("message");
-    messageDiv.innerHTML = "DeviceMotionEvent not supported"
-  } 
 }
 
 /*This function handles deviceorientation events*/
