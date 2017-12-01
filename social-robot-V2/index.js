@@ -45,12 +45,12 @@ function handleDeviceMotionEvent(event) {
   var accY = event.acceleration.y;
   var accZ = event.acceleration.z;
 
-  var acceleration = Math.sqrt(accX * accX + accY * accY + accZ * accZ);
-  if(acceleration > 1){
-    var speech = new SpeechSynthesisUtterance("Auch, please be careful about me. Thanks!");
-    window.speechSynthesis.speak(speech);
-    acceleration = 0;
-  }
+  // var acceleration = Math.sqrt(accX * accX + accY * accY + accZ * accZ);
+  // if(acceleration > 1){
+  //   var speech = new SpeechSynthesisUtterance("Auch, please be careful about me. Thanks!");
+  //   window.speechSynthesis.speak(speech);
+  //   acceleration = 0;
+  // }
 
   //test print
   //console.log("Acc-X:" + accX.toFixed(1) + " m/s^2 <br>");
