@@ -35,7 +35,7 @@ The robot gather geolocation information from device geolocation sensor and then
 
 ##### Orientation Sensor
 
-The robot gather infomation from device orientation sensor and show 4 status on its main page. The status indicate whether the devices is stand-up, lie-down, face-up and face-down.
+The robot gather information from device orientation sensor and show 4 status on its main page. The status indicate whether the devices is stand-up, lie-down, face-up and face-down.
 
 ##### Motion Sensor
 

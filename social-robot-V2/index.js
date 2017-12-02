@@ -27,15 +27,35 @@ function handleLoadEvent() {
 
 /*This function handles device orientation event */
 function handleDeviceOrientationEvent(event) {
-  var messageDiv = document.getElementById("tablet-orientation");
+    var messageDiv = document.getElementById("tablet-orientation");
 
-  var alpha = event.alpha;
-  var beta = event.beta;
-  var gamma = event.gamma;
+    var alpha = event.alpha;
+    var beta = event.beta;
+    var gamma = event.gamma;
 
-  messageDiv.innerHTML = "alpha:" + alpha.toFixed(1) + " deg <br>";
-  messageDiv.innerHTML += "beta:" + beta.toFixed(1) + " deg <br>";
-  messageDiv.innerHTML += "gamma:" + gamma.toFixed(1) + " deg";
+    messageDiv.innerHTML = "alpha:" + alpha.toFixed(1) + " deg <br>";
+    messageDiv.innerHTML += "beta:" + beta.toFixed(1) + " deg <br>";
+    messageDiv.innerHTML += "gamma:" + gamma.toFixed(1) + " deg";
+
+ 
+    if(
+        parseFloat(beta).toFixed(1) < parseFloat("45").toFixed(1) 
+        && parseFloat(beta).toFixed(1) > parseFloat("-45").toFixed(1)
+        && parseFloat(gamma).toFixed(1) < parseFloat("45").toFixed(1) 
+        && parseFloat(gamma).toFixed(1) > parseFloat("-45").toFixed(1)
+        )
+    messageDiv.innerHTML += "orientation status:" + "FACE UP";
+    else if(
+        parseFloat(beta).toFixed(1) < parseFloat("-135").toFixed(1) 
+        && parseFloat(beta).toFixed(1) > parseFloat("135").toFixed(1)
+        && parseFloat(gamma).toFixed(1) < parseFloat("-135").toFixed(1) 
+        && parseFloat(gamma).toFixed(1) > parseFloat("135").toFixed(1)
+        )
+    messageDiv.innerHTML += "orientation status:" + "FACE DOWN";
+    //"STANDING UP"
+    //"LYING DOWN"
+    
+    
 }
 
 
