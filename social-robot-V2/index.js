@@ -38,24 +38,32 @@ function handleDeviceOrientationEvent(event) {
     messageDiv.innerHTML += "gamma:" + gamma.toFixed(1) + " deg<br>";
 
  
-    if(
-        parseFloat(beta).toFixed(1) < parseFloat("45").toFixed(1) 
-        && parseFloat(beta).toFixed(1) > parseFloat("-45").toFixed(1)
-        && parseFloat(gamma).toFixed(1) < parseFloat("22.5").toFixed(1) 
-        && parseFloat(gamma).toFixed(1) > parseFloat("-22.5").toFixed(1)
-        )
-    messageDiv.innerHTML += "orientation status <br>" + "FACE UP";
-    else if(
-        parseFloat(beta).toFixed(1) < parseFloat("-135").toFixed(1) 
-        && parseFloat(beta).toFixed(1) > parseFloat("135").toFixed(1)
-        && parseFloat(gamma).toFixed(1) < parseFloat("22.5").toFixed(1) 
-        && parseFloat(gamma).toFixed(1) > parseFloat("-22.5").toFixed(1)
-        )
-    messageDiv.innerHTML += "orientation status <br>" + "FACE DOWN";
-    else
-        messageDiv.innerHTML += "orientation status <br>" + "STANDING UP";
+    // if(
+    //     parseFloat(beta).toFixed(1) < parseFloat("45").toFixed(1) 
+    //     && parseFloat(beta).toFixed(1) > parseFloat("-45").toFixed(1)
+    //     && parseFloat(gamma).toFixed(1) < parseFloat("22.5").toFixed(1) 
+    //     && parseFloat(gamma).toFixed(1) > parseFloat("-22.5").toFixed(1)
+    //     )
+    // messageDiv.innerHTML += "orientation status <br>" + "FACE UP";
+    // else if(
+    //     parseFloat(beta).toFixed(1) < parseFloat("-135").toFixed(1) 
+    //     && parseFloat(beta).toFixed(1) > parseFloat("135").toFixed(1)
+    //     && parseFloat(gamma).toFixed(1) < parseFloat("22.5").toFixed(1) 
+    //     && parseFloat(gamma).toFixed(1) > parseFloat("-22.5").toFixed(1)
+    //     )
+    // messageDiv.innerHTML += "orientation status <br>" + "FACE DOWN";
+    // else
+    //     messageDiv.innerHTML += "orientation status <br>" + "STANDING UP";
+
     //"STANDING UP"
     //"LYING DOWN"
+
+    if(beta < 45.0 && beta > -45.0 && gamma < 22.5 && gamma > -22.5)
+        messageDiv.innerHTML += "orientation status <br>" + "FACE UP";
+    else if(beta < -135.0 && beta > 135.0 && gamma < 22.5 && gamma > -22.5)
+        messageDiv.innerHTML += "orientation status <br>" + "FACE DOWN";
+    else
+        messageDiv.innerHTML += "orientation status <br>" + "STANDING UP";
     
         
 }
@@ -103,8 +111,6 @@ function handleDeviceMotionEvent(event) {
     // messageDiv.innerHTML += "Acc-Z:" + accZ.toFixed(1) + " m/s^2 <br>";
     messageDiv.innerHTML = "Acc" + acceleration.toFixed(1) + "m/s^2";
 }
-
-
 
 
 function getStreetView() {
