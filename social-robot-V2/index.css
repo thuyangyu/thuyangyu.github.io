@@ -8,8 +8,8 @@
     background: hsl(16, 100%, 66%);
     flex: calc(100% / 3);
     text-align: center;
-    line-height: 10px;
-    border: 5px solid white;
+    line-height: normal;
+    border: 5px solid white; 
 }
 
 img {
