@@ -35,7 +35,7 @@ function handleDeviceOrientationEvent(event) {
 
     messageDiv.innerHTML = "alpha:" + alpha.toFixed(1) + " deg <br>";
     messageDiv.innerHTML += "beta:" + beta.toFixed(1) + " deg <br>";
-    messageDiv.innerHTML += "gamma:" + gamma.toFixed(1) + " deg";
+    messageDiv.innerHTML += "gamma:" + gamma.toFixed(1) + " deg<br>";
 
  
     if(
@@ -52,6 +52,8 @@ function handleDeviceOrientationEvent(event) {
         && parseFloat(gamma).toFixed(1) > parseFloat("135").toFixed(1)
         )
     messageDiv.innerHTML += "orientation status:" + "FACE DOWN";
+    else
+        messageDiv.innerHTML += "orientation status:" + "STANDING UP";
     //"STANDING UP"
     //"LYING DOWN"
     
