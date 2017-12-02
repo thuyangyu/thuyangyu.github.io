@@ -57,7 +57,7 @@ function handleDeviceOrientationEvent(event) {
     //"STANDING UP"
     //"LYING DOWN"
     
-    
+     
 }
 
 
