@@ -41,15 +41,15 @@ function handleDeviceOrientationEvent(event) {
     if(
         parseFloat(beta).toFixed(1) < parseFloat("45").toFixed(1) 
         && parseFloat(beta).toFixed(1) > parseFloat("-45").toFixed(1)
-        && parseFloat(gamma).toFixed(1) < parseFloat("45").toFixed(1) 
-        && parseFloat(gamma).toFixed(1) > parseFloat("-45").toFixed(1)
+        && parseFloat(gamma).toFixed(1) < parseFloat("22.5").toFixed(1) 
+        && parseFloat(gamma).toFixed(1) > parseFloat("-22.5").toFixed(1)
         )
     messageDiv.innerHTML += "orientation status:" + "FACE UP";
     else if(
         parseFloat(beta).toFixed(1) < parseFloat("-135").toFixed(1) 
         && parseFloat(beta).toFixed(1) > parseFloat("135").toFixed(1)
-        && parseFloat(gamma).toFixed(1) < parseFloat("-135").toFixed(1) 
-        && parseFloat(gamma).toFixed(1) > parseFloat("135").toFixed(1)
+        && parseFloat(gamma).toFixed(1) < parseFloat("22.5").toFixed(1) 
+        && parseFloat(gamma).toFixed(1) > parseFloat("-22.5").toFixed(1)
         )
     messageDiv.innerHTML += "orientation status:" + "FACE DOWN";
     else
@@ -97,7 +97,7 @@ function handleDeviceMotionEvent(event) {
     //test print
     //console.log("Acc-X:" + accX.toFixed(1) + " m/s^2 <br>");
 
-    
+
     // messageDiv.innerHTML = "Acc-X:" + accX.toFixed(1) + " m/s^2 <br>";
     // messageDiv.innerHTML += "Acc-Y:" + accY.toFixed(1) + " m/s^2 <br>";
     // messageDiv.innerHTML += "Acc-Z:" + accZ.toFixed(1) + " m/s^2 <br>";
