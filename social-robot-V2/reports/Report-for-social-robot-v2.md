@@ -37,32 +37,22 @@ The robot gather geolocation information from device geolocation sensor and then
 
 The robot gather infomation from device orientation sensor and show 4 status on its main page. The status indicate whether the devices is stand-up, lie-down, face-up and face-down.
 
-![]()
-
 ##### Motion Sensor
 
 The motion sensor detects if the device is pushed on a table or lifted off the table. If this motion happens, it will give out a voice of "Auch, please be careful about me. Thanks!"
 
-![]()
-
 ##### Touch Sensor
 
 If the robot face is touched, It will give out a voice of "hello, how are you". 
-
-![]()
-
-
-
-
 
 #### Implementation link
 
 > Notes: This social robot page is optimized by Iphone 7 Plus.
 >
 
-[http://104.207.159.51:3000/social-robot/index.html](http://104.207.159.51:3000/social-robot/index.html)
+[https://thuyangyu.github.io/social-robot-V2/index.html](https://thuyangyu.github.io/social-robot-V2/index.html)
 
 #### Source Code
 
-[https://github.com/thuyangyu/thuyangyu.github.io/tree/master/social-robot](https://github.com/thuyangyu/thuyangyu.github.io/tree/master/social-robot)
+[https://github.com/thuyangyu/thuyangyu.github.io/tree/master/social-robot-V2](https://github.com/thuyangyu/thuyangyu.github.io/tree/master/social-robot-V2)
 
