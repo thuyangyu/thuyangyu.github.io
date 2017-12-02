@@ -44,20 +44,20 @@ function handleDeviceOrientationEvent(event) {
         && parseFloat(gamma).toFixed(1) < parseFloat("22.5").toFixed(1) 
         && parseFloat(gamma).toFixed(1) > parseFloat("-22.5").toFixed(1)
         )
-    messageDiv.innerHTML += "orientation status:" + "FACE UP";
+    messageDiv.innerHTML += "orientation status <br>" + "FACE UP";
     else if(
         parseFloat(beta).toFixed(1) < parseFloat("-135").toFixed(1) 
         && parseFloat(beta).toFixed(1) > parseFloat("135").toFixed(1)
         && parseFloat(gamma).toFixed(1) < parseFloat("22.5").toFixed(1) 
         && parseFloat(gamma).toFixed(1) > parseFloat("-22.5").toFixed(1)
         )
-    messageDiv.innerHTML += "orientation status:" + "FACE DOWN";
+    messageDiv.innerHTML += "orientation status <br>" + "FACE DOWN";
     else
-        messageDiv.innerHTML += "orientation status:" + "STANDING UP";
+        messageDiv.innerHTML += "orientation status <br>" + "STANDING UP";
     //"STANDING UP"
     //"LYING DOWN"
     
-     
+        
 }
 
 
@@ -101,7 +101,7 @@ function handleDeviceMotionEvent(event) {
     // messageDiv.innerHTML = "Acc-X:" + accX.toFixed(1) + " m/s^2 <br>";
     // messageDiv.innerHTML += "Acc-Y:" + accY.toFixed(1) + " m/s^2 <br>";
     // messageDiv.innerHTML += "Acc-Z:" + accZ.toFixed(1) + " m/s^2 <br>";
-    // messageDiv.innerHTML += "Acc" + acceleration.toFixed(1) + "m/s^2";
+    messageDiv.innerHTML += "Acc" + acceleration.toFixed(1) + "m/s^2";
 }
 
 
