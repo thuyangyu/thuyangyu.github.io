@@ -200,7 +200,7 @@ function getWeather() {
                 weatherText = 'city: ' + city + '<br>Date: ' + year + ' ' + month + ' ' + date + '<br>humidity: ' + humidity + '<br>pressure: ' + pressure + '<br>averate temperature: ' + temp_avg + '<br>max temperature: ' + temp_max + '<br>min temperature: ' + temp_min
 
                 console.log(weatherText);
-                var weather_block = document.getElementById("#weather");
+                var weather_block = document.getElementById("weather");
                 weather_block.innerHTML += "<h2>Weather Info</h2>" + weatherText;
             })
         })
