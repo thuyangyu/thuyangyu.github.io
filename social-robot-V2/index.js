@@ -37,27 +37,6 @@ function handleDeviceOrientationEvent(event) {
     messageDiv.innerHTML += "beta:" + beta.toFixed(1) + " deg <br>";
     messageDiv.innerHTML += "gamma:" + gamma.toFixed(1) + " deg<br>";
 
- 
-    // if(
-    //     parseFloat(beta).toFixed(1) < parseFloat("45").toFixed(1) 
-    //     && parseFloat(beta).toFixed(1) > parseFloat("-45").toFixed(1)
-    //     && parseFloat(gamma).toFixed(1) < parseFloat("22.5").toFixed(1) 
-    //     && parseFloat(gamma).toFixed(1) > parseFloat("-22.5").toFixed(1)
-    //     )
-    // messageDiv.innerHTML += "orientation status <br>" + "FACE UP";
-    // else if(
-    //     parseFloat(beta).toFixed(1) < parseFloat("-135").toFixed(1) 
-    //     && parseFloat(beta).toFixed(1) > parseFloat("135").toFixed(1)
-    //     && parseFloat(gamma).toFixed(1) < parseFloat("22.5").toFixed(1) 
-    //     && parseFloat(gamma).toFixed(1) > parseFloat("-22.5").toFixed(1)
-    //     )
-    // messageDiv.innerHTML += "orientation status <br>" + "FACE DOWN";
-    // else
-    //     messageDiv.innerHTML += "orientation status <br>" + "STANDING UP";
-
-    //"STANDING UP"
-    //"LYING DOWN"
-
     if(beta < 5.0 && beta > -5.0 && gamma < 2.5 && gamma > -2.5)
         messageDiv.innerHTML += "orientation status <br>" + "LYING DOWN";
     else if(beta < 45.0 && beta > -45.0 && gamma < 22.5 && gamma > -22.5)
@@ -221,7 +200,8 @@ function getWeather() {
                 weatherText = 'city: ' + city + '<br>Date: ' + year + ' ' + month + ' ' + date + '<br>humidity: ' + humidity + '<br>pressure: ' + pressure + '<br>averate temperature: ' + temp_avg + '<br>max temperature: ' + temp_max + '<br>min temperature: ' + temp_min
 
                 console.log(weatherText);
-                $('#weather').html(' <h2>Weather Info</h2>' + weatherText)
+                var weather_block = document.getElementById("#weather");
+                weather_block += "<h2>Weather Info</h2>" + weatherText;
             })
         })
     })
