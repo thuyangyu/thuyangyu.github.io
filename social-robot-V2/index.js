@@ -88,7 +88,6 @@ function handleDeviceMotionEvent(event) {
     var accX = event.acceleration.x;
     var accY = event.acceleration.y;
     var accZ = event.acceleration.z;
-
     var acceleration = Math.sqrt((accX * accX + accY * accY + accZ * accZ) / 3);
 
     if (parseFloat(acceleration).toFixed(1) > parseFloat("3").toFixed(1)) {
@@ -98,10 +97,11 @@ function handleDeviceMotionEvent(event) {
     //test print
     //console.log("Acc-X:" + accX.toFixed(1) + " m/s^2 <br>");
 
-    messageDiv.innerHTML = "Acc-X:" + accX.toFixed(1) + " m/s^2 <br>";
-    messageDiv.innerHTML += "Acc-Y:" + accY.toFixed(1) + " m/s^2 <br>";
-    messageDiv.innerHTML += "Acc-Z:" + accZ.toFixed(1) + " m/s^2 <br>";
-    messageDiv.innerHTML += "Acc" + acceleration.toFixed(1) + "m/s^2";
+    
+    // messageDiv.innerHTML = "Acc-X:" + accX.toFixed(1) + " m/s^2 <br>";
+    // messageDiv.innerHTML += "Acc-Y:" + accY.toFixed(1) + " m/s^2 <br>";
+    // messageDiv.innerHTML += "Acc-Z:" + accZ.toFixed(1) + " m/s^2 <br>";
+    // messageDiv.innerHTML += "Acc" + acceleration.toFixed(1) + "m/s^2";
 }
 
 
