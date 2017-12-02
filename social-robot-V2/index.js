@@ -201,8 +201,7 @@ function getWeather() {
 
                 console.log(weatherText);
                 var weather_block = document.getElementById("#weather");
-                weather_block += "<h2>Weather Info</h2>"
-                weather_block += weatherText;
+                weather_block.innerHTML += "<h2>Weather Info</h2>" + weatherText;
             })
         })
     })
