@@ -60,7 +60,7 @@ function handleDeviceOrientationEvent(event) {
 
     if(beta < 45.0 && beta > -45.0 && gamma < 22.5 && gamma > -22.5)
         messageDiv.innerHTML += "orientation status <br>" + "FACE UP";
-    else if((beta < -135.0 || beta > 135.0) && (gamma < 22.5 || gamma > -22.5))
+    else if((beta < -135.0 || beta > 135.0) && (gamma < 22.5 && gamma > -22.5))
         messageDiv.innerHTML += "orientation status <br>" + "FACE DOWN";
     else
         messageDiv.innerHTML += "orientation status <br>" + "STANDING UP";
