@@ -101,7 +101,7 @@ function handleDeviceMotionEvent(event) {
     // messageDiv.innerHTML = "Acc-X:" + accX.toFixed(1) + " m/s^2 <br>";
     // messageDiv.innerHTML += "Acc-Y:" + accY.toFixed(1) + " m/s^2 <br>";
     // messageDiv.innerHTML += "Acc-Z:" + accZ.toFixed(1) + " m/s^2 <br>";
-    messageDiv.innerHTML += "Acc" + acceleration.toFixed(1) + "m/s^2";
+    messageDiv.innerHTML = "Acc" + acceleration.toFixed(1) + "m/s^2";
 }
 
 
