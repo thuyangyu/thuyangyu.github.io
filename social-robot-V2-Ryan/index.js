@@ -132,10 +132,22 @@ var ohyeah = new SpeechSynthesisUtterance("oh yeah!");
 var wow = new SpeechSynthesisUtterance("Wow!");
 var enjoyable = new SpeechSynthesisUtterance("I feel enjoyable!");
 
+ohyeah.onend = function(event) {
+  displayText.textContent = "Hi, I'm OLO!";
+}
+
+wow.onend = function(event) {
+  displayText.textContent = "Hi, I'm OLO!";
+}
+
+enjoyable.onend = function(event) {
+  displayText.textContent = "Hi, I'm OLO!";
+}
+
 function speak_wow() {
     var amISpeaking = synth.speaking;
     if (amISpeaking == false) {
-        synth.speak(wow);
+        synth.speak(wow);   
     }
 }
 
@@ -180,6 +192,7 @@ function handleDeviceMotionEvent(event) {
     // testoutput.innerHTML += "Acc-Y:" + accY.toFixed(1) + " m/s^2 <br>";
     // testoutput.innerHTML += "Acc-Z:" + accZ.toFixed(1) + " m/s^2 <br>";
     if (parseFloat(acceleration).toFixed(1) > parseFloat("3").toFixed(1)) {
+        displayText.textContent = "Wow!";
         speak_wow();
     }
     //testoutput.innerHTML = "Good";
@@ -209,9 +222,9 @@ function handleDeviceOrientationEvent(event) {
         orientation_stat = 3;//"STANDING UP";
     
 
-    var testoutput = document.getElementById("testoutput");
-    testoutput.innerHTML = "orientation_stat " + orientation_stat + "<br>";
-    testoutput.innerHTML += "old_orientation_stat " + old_orientation_stat;
+    // var testoutput = document.getElementById("testoutput");
+    // testoutput.innerHTML = "orientation_stat " + orientation_stat + "<br>";
+    // testoutput.innerHTML += "old_orientation_stat " + old_orientation_stat;
 
     if(old_orientation_stat != null && old_orientation_stat != orientation_stat)
       speak_ohyeah();
