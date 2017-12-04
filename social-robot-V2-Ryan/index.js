@@ -108,8 +108,8 @@ function geoFindMe() {
           weatherText.textContent = weather_text_on_page;
           console.log(weather);
           // var synth = window.speechSynthesis;
-          // var wooo = new SpeechSynthesisUtterance("Wooo!");
-          // synth.speak(wooo);
+          // var ohyeah = new SpeechSynthesisUtterance("ohyeah!");
+          // synth.speak(ohyeah);
           // var testoutput = document.getElementById("testoutput");
           // testoutput.innerHTML = "Good";
       })
@@ -128,8 +128,9 @@ function geoFindMe() {
 
 //Function Speech
 var synth = window.speechSynthesis;
-var wooo = new SpeechSynthesisUtterance("Wooo!");
+var ohyeah = new SpeechSynthesisUtterance("oh yeah!");
 var wow = new SpeechSynthesisUtterance("Wow!");
+var enjoyable = new SpeechSynthesisUtterance("I feel enjoyable!");
 
 function speak_wow() {
     var amISpeaking = synth.speaking;
@@ -138,10 +139,17 @@ function speak_wow() {
     }
 }
 
-function speak_wooo() {
+function speak_ohyeah() {
     var amISpeaking = synth.speaking;
     if (amISpeaking == false) {
-        synth.speak(wooo);
+        synth.speak(ohyeah);
+    }
+}
+
+function speak_enjoyable() {
+    var amISpeaking = synth.speaking;
+    if (amISpeaking == false) {
+        synth.speak(enjoyable);
     }
 }
 
@@ -206,7 +214,7 @@ function handleDeviceOrientationEvent(event) {
     testoutput.innerHTML += "old_orientation_stat " + old_orientation_stat;
 
     if(old_orientation_stat != null && old_orientation_stat != orientation_stat)
-      speak_wooo();
+      speak_ohyeah();
 
     old_orientation_stat = orientation_stat;
 
@@ -222,7 +230,6 @@ function handleTouchEvent(event) {
         return;
     }
     //if event.type = touchend
-    var hello = new SpeechSynthesisUtterance("I feel enjoyable!");
-    window.speechSynthesis.speak(hello);
+    speak_enjoyable();
 }
 
