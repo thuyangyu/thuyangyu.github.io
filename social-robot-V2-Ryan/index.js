@@ -186,14 +186,13 @@ function handleDeviceOrientationEvent(event) {
     var beta = event.beta;
     var gamma = event.gamma;
 
-    var orientation_stat = 0;
+    var orientation_stat = 1;
     // messageDiv.innerHTML = "alpha:" + alpha.toFixed(1) + " deg <br>";
     // messageDiv.innerHTML += "beta:" + beta.toFixed(1) + " deg <br>";
     // messageDiv.innerHTML += "gamma:" + gamma.toFixed(1) + " deg<br>";
 
-    if(beta < 5.0 && beta > -5.0 && gamma < 2.5 && gamma > -2.5)
-        old_orientation_stat = 0;// "LYING DOWN"
-    else if(beta < 45.0 && beta > -45.0 && gamma < 22.5 && gamma > -22.5)
+ 
+    if(beta < 45.0 && beta > -45.0 && gamma < 22.5 && gamma > -22.5)
         old_orientation_stat = 1;// "FACE UP"
     else if((beta < -135.0 || beta > 135.0) && (gamma < 22.5 && gamma > -22.5))
         old_orientation_stat = 2;// "FACE DOWN"
