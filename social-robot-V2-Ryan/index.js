@@ -7,122 +7,123 @@ var displayText = document.getElementById("textInDialogBox");
 var old_orientation_stat = null;
 
 $(document).ready(function() {
-  $("#robot-face-normal").css("display", "initial");
-  $("#step-1").css("display", "initial");
+    $("#robot-face-normal").css("display", "initial");
+    $("#step-1").css("display", "initial");
 });
 
 $("#submit-1").click(function(e) {
-  $("#step-1").css("display", "none");
-  $("#step-2").css("display", "initial");
-  stress_value = $("#stress-range").val();
+    $("#step-1").css("display", "none");
+    $("#step-2").css("display", "initial");
+    stress_value = $("#stress-range").val();
 });
 
 $("#submit-2").click(function(e) {
-  $("#step-2").css("display", "none");
-  energy_value = $("#energy-range").val();
-  if (energy_value > 0 || stress_value > 0) {
-    $("#robot-face-normal").css("display", "none");
-    $("#robot-face-sad").css("display", "initial");
-    $("#sad-suggestion").css("display", "initial");
-    window.setTimeout(function() {
-      $("#sad-suggestion").css("display", "none");
-      $("#step-1").css("display", "initial");
-      $("#robot-face-sad").css("display", "none");
-      $("#robot-face-normal").css("display", "initial");
-    }, 2800);
-  } else {
-    $("#robot-face-normal").css("display", "none");
-    $("#robot-face-happy").css("display", "initial");
-    $("#good-suggestion").css("display", "initial");
-    window.setTimeout(function() {
-      $("#good-suggestion").css("display", "none");
-      $("#step-1").css("display", "initial");
-      $("#robot-face-happy").css("display", "none");
-      $("#robot-face-normal").css("display", "initial");
-    }, 2800);
-  }
+    $("#step-2").css("display", "none");
+    energy_value = $("#energy-range").val();
+    if (energy_value > 0 || stress_value > 0) {
+        $("#robot-face-normal").css("display", "none");
+        $("#robot-face-sad").css("display", "initial");
+        $("#sad-suggestion").css("display", "initial");
+        window.setTimeout(function() {
+            $("#sad-suggestion").css("display", "none");
+            $("#step-1").css("display", "initial");
+            $("#robot-face-sad").css("display", "none");
+            $("#robot-face-normal").css("display", "initial");
+        }, 2800);
+    } else {
+        $("#robot-face-normal").css("display", "none");
+        $("#robot-face-happy").css("display", "initial");
+        $("#good-suggestion").css("display", "initial");
+        window.setTimeout(function() {
+            $("#good-suggestion").css("display", "none");
+            $("#step-1").css("display", "initial");
+            $("#robot-face-happy").css("display", "none");
+            $("#robot-face-normal").css("display", "initial");
+        }, 2800);
+    }
 });
 
 $("#robot-face").click(function(e) {
-  //show hi
-  $("#say-hi").css("display", "initial");
-  //hide hi
-  window.setTimeout(function() {
-    $("#say-hi").css("display", "none");
-  }, 2800);
+    //show hi
+    $("#say-hi").css("display", "initial");
+    //hide hi
+    window.setTimeout(function() {
+        $("#say-hi").css("display", "none");
+    }, 2800);
 });
 
 $("#zone-a").mousemove(function(e) {
-  var offset = $(this).offset();
-  var width = $(this).width();
-  var height = $(this).height();
-  var ratio_x = (e.pageX - offset.left - width / 2) / width * 2;
-  var ratio_y = (e.pageY - offset.top - height / 2) / height * 2;
-  // console.log(ratio_x);
-  // console.log(ratio_y);
+    var offset = $(this).offset();
+    var width = $(this).width();
+    var height = $(this).height();
+    var ratio_x = (e.pageX - offset.left - width / 2) / width * 2;
+    var ratio_y = (e.pageY - offset.top - height / 2) / height * 2;
+    // console.log(ratio_x);
+    // console.log(ratio_y);
 
-  var r_top = 193 + ratio_y * 25;
-  var r_left = 704 + ratio_x * 25;
-  var l_top = 193 + ratio_y * 25;
-  var l_left = 216 + ratio_x * 25;
-  $(".pupil-r").css("top", r_top);
-  $(".pupil-r").css("left", r_left);
-  $(".pupil-l").css("top", l_top);
-  $(".pupil-l").css("left", l_left);
+    var r_top = 193 + ratio_y * 25;
+    var r_left = 704 + ratio_x * 25;
+    var l_top = 193 + ratio_y * 25;
+    var l_left = 216 + ratio_x * 25;
+    $(".pupil-r").css("top", r_top);
+    $(".pupil-r").css("left", r_left);
+    $(".pupil-l").css("top", l_top);
+    $(".pupil-l").css("left", l_left);
 });
 
 // Geo Sensor
 function geoFindMe() {
-  var cityNameLabel = document.getElementById("cityName");
-  // if not supported
-  if (!navigator.geolocation){
-    cityNameLabel.textContent = "Geolocation is not supported by your browser";
-    return;
-  }
-  // if succeeded in retrieving location
-  function success(position) {
-    var latitude  = position.coords.latitude;
-    var longitude = position.coords.longitude;
-    // parse the lat-lng with google reverse API
-    var MY_GOOGLE_API = "AIzaSyCFRm__E7OuBJz0P2A4X_GEVa2nqu0rY00";
-    // var MY_WEATHER_API_KEY = "a995b7ec6602c03853d099ff68923916";
-    // var MY_WEATHER_API_KEY = "a995b7ec6602c03853d099ff68923916";
-    var MY_WEATHER_API_KEY = "b1b15e88fa797225412429c1c50c122a1";
-    url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latitude + ',' + longitude + '&key=' + MY_GOOGLE_API;
-    $.getJSON(url, function(res) {
-      // console.log("inside getJSON");
-      results = res['results'];
-      city = results[0]['address_components'][3]['long_name'];  
-      console.log(city);
-      cityNameLabel.textContent = city;
-      
-      url = "https://openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + MY_WEATHER_API_KEY;
-      console.log(url);
-      $.getJSON(url, function(data) {
-          //data = JSON.parse(data);
-          city = data['name']
-          //description = data['weather'][0]['description']
-          weather = data['weather'][0]['main'];
-          temp_avg = data['main']['temp'];
-          weather_text_on_page = weather + " " + temp_avg + "°C";
-          weatherText.textContent = weather_text_on_page;
-          console.log(weather);
-          // var synth = window.speechSynthesis;
-          // var ohyeah = new SpeechSynthesisUtterance("ohyeah!");
-          // synth.speak(ohyeah);
-          // var testoutput = document.getElementById("testoutput");
-          // testoutput.innerHTML = "Good";
-      })
-      
-  })}
-  // if error
-  function error() {
-    cityNameLabel.textContent = "Geolocation is not supported by your browser";
-  }
+    var cityNameLabel = document.getElementById("cityName");
+    // if not supported
+    if (!navigator.geolocation) {
+        cityNameLabel.textContent = "Geolocation is not supported by your browser";
+        return;
+    }
+    // if succeeded in retrieving location
+    function success(position) {
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+        // parse the lat-lng with google reverse API
+        var MY_GOOGLE_API = "AIzaSyCFRm__E7OuBJz0P2A4X_GEVa2nqu0rY00";
+        // var MY_WEATHER_API_KEY = "a995b7ec6602c03853d099ff68923916";
+        // var MY_WEATHER_API_KEY = "a995b7ec6602c03853d099ff68923916";
+        var MY_WEATHER_API_KEY = "b1b15e88fa797225412429c1c50c122a1";
+        url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latitude + ',' + longitude + '&key=' + MY_GOOGLE_API;
+        $.getJSON(url, function(res) {
+            // console.log("inside getJSON");
+            results = res['results'];
+            city = results[0]['address_components'][3]['long_name'];
+            console.log(city);
+            cityNameLabel.textContent = city;
 
-  cityNameLabel.textContent = "Locating...";
+            url = "https://openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + MY_WEATHER_API_KEY;
+            console.log(url);
+            $.getJSON(url, function(data) {
+                //data = JSON.parse(data);
+                city = data['name']
+                //description = data['weather'][0]['description']
+                weather = data['weather'][0]['main'];
+                temp_avg = data['main']['temp'];
+                weather_text_on_page = weather + " " + temp_avg + "°C";
+                weatherText.textContent = weather_text_on_page;
+                console.log(weather);
+                // var synth = window.speechSynthesis;
+                // var ohyeah = new SpeechSynthesisUtterance("ohyeah!");
+                // synth.speak(ohyeah);
+                // var testoutput = document.getElementById("testoutput");
+                // testoutput.innerHTML = "Good";
+            })
 
-  navigator.geolocation.getCurrentPosition(success, error);
+        })
+    }
+    // if error
+    function error() {
+        cityNameLabel.textContent = "Geolocation is not supported by your browser";
+    }
+
+    cityNameLabel.textContent = "Locating...";
+
+    navigator.geolocation.getCurrentPosition(success, error);
 }
 
 
@@ -133,21 +134,21 @@ var wow = new SpeechSynthesisUtterance("Wow!");
 var enjoyable = new SpeechSynthesisUtterance("I feel enjoyable!");
 
 ohyeah.onend = function(event) {
-  displayText.textContent = "Hi, I'm OLO!";
+    displayText.textContent = "Hi, I'm OLO!";
 }
 
 wow.onend = function(event) {
-  displayText.textContent = "Hi, I'm OLO!";
+    displayText.textContent = "Hi, I'm OLO!";
 }
 
 enjoyable.onend = function(event) {
-  displayText.textContent = "Hi, I'm OLO!";
+    displayText.textContent = "Hi, I'm OLO!";
 }
 
 function speak_wow() {
     var amISpeaking = synth.speaking;
     if (amISpeaking == false) {
-        synth.speak(wow);   
+        synth.speak(wow);
     }
 }
 
@@ -200,7 +201,7 @@ function handleDeviceMotionEvent(event) {
 
 /*This function handles device orientation event */
 function handleDeviceOrientationEvent(event) {
-//     var messageDiv = document.getElementById("tablet-orientation");
+    //     var messageDiv = document.getElementById("tablet-orientation");
 
 
     var alpha = event.alpha;
@@ -212,26 +213,28 @@ function handleDeviceOrientationEvent(event) {
     // messageDiv.innerHTML += "beta:" + beta.toFixed(1) + " deg <br>";
     // messageDiv.innerHTML += "gamma:" + gamma.toFixed(1) + " deg<br>";
 
-    if(beta < 5.0 && beta > -5.0 && gamma < 2.5 && gamma > -2.5)
-        orientation_stat = 0;// "LYING DOWN"
-    else if(beta < 45.0 && beta > -45.0 && gamma < 22.5 && gamma > -22.5)
-        orientation_stat = 1;// "FACE UP"
-    else if((beta < -135.0 || beta > 135.0) && (gamma < 22.5 && gamma > -22.5))
-        orientation_stat = 2;// "FACE DOWN"
+    if (beta < 5.0 && beta > -5.0 && gamma < 2.5 && gamma > -2.5)
+        orientation_stat = 0; // "LYING DOWN"
+    else if (beta < 45.0 && beta > -45.0 && gamma < 22.5 && gamma > -22.5)
+        orientation_stat = 1; // "FACE UP"
+    else if ((beta < -135.0 || beta > 135.0) && (gamma < 22.5 && gamma > -22.5))
+        orientation_stat = 2; // "FACE DOWN"
     else
-        orientation_stat = 3;//"STANDING UP";
-    
+        orientation_stat = 3; //"STANDING UP";
+
 
     // var testoutput = document.getElementById("testoutput");
     // testoutput.innerHTML = "orientation_stat " + orientation_stat + "<br>";
     // testoutput.innerHTML += "old_orientation_stat " + old_orientation_stat;
 
-    if(old_orientation_stat != null && old_orientation_stat != orientation_stat)
-      speak_ohyeah();
+    if (old_orientation_stat != null && old_orientation_stat != orientation_stat){
+        displayText.textContent = "Oh Yeah!";
+        speak_ohyeah();
+    }
 
     old_orientation_stat = orientation_stat;
 
-        
+
 }
 
 
@@ -243,6 +246,6 @@ function handleTouchEvent(event) {
         return;
     }
     //if event.type = touchend
+    displayText.textContent = "I feel enjoyable!";
     speak_enjoyable();
 }
-
