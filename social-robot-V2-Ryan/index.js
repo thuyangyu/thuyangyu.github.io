@@ -3,6 +3,9 @@ var cityNameLabel = document.getElementById("cityName");
 var weatherText = document.getElementById("weatherReading");
 var displayText = document.getElementById("textInDialogBox");
 
+
+var old_orientation_stat = 0;
+
 $(document).ready(function() {
   $("#robot-face-normal").css("display", "initial");
   $("#step-1").css("display", "initial");
@@ -178,23 +181,30 @@ function handleDeviceMotionEvent(event) {
 function handleDeviceOrientationEvent(event) {
 //     var messageDiv = document.getElementById("tablet-orientation");
 
-//     var alpha = event.alpha;
-//     var beta = event.beta;
-//     var gamma = event.gamma;
 
-//     messageDiv.innerHTML = "alpha:" + alpha.toFixed(1) + " deg <br>";
-//     messageDiv.innerHTML += "beta:" + beta.toFixed(1) + " deg <br>";
-//     messageDiv.innerHTML += "gamma:" + gamma.toFixed(1) + " deg<br>";
+    var alpha = event.alpha;
+    var beta = event.beta;
+    var gamma = event.gamma;
 
-//     if(beta < 5.0 && beta > -5.0 && gamma < 2.5 && gamma > -2.5)
-//         messageDiv.innerHTML += "orientation status <br>" + "LYING DOWN";
-//     else if(beta < 45.0 && beta > -45.0 && gamma < 22.5 && gamma > -22.5)
-//         messageDiv.innerHTML += "orientation status <br>" + "FACE UP";
-//     else if((beta < -135.0 || beta > 135.0) && (gamma < 22.5 && gamma > -22.5))
-//         messageDiv.innerHTML += "orientation status <br>" + "FACE DOWN";
-//     else
-//         messageDiv.innerHTML += "orientation status <br>" + "STANDING UP";
+    var orientation_stat = 0;
+    // messageDiv.innerHTML = "alpha:" + alpha.toFixed(1) + " deg <br>";
+    // messageDiv.innerHTML += "beta:" + beta.toFixed(1) + " deg <br>";
+    // messageDiv.innerHTML += "gamma:" + gamma.toFixed(1) + " deg<br>";
+
+    if(beta < 5.0 && beta > -5.0 && gamma < 2.5 && gamma > -2.5)
+        old_orientation_stat = 0;// "LYING DOWN"
+    else if(beta < 45.0 && beta > -45.0 && gamma < 22.5 && gamma > -22.5)
+        old_orientation_stat = 1;// "FACE UP"
+    else if((beta < -135.0 || beta > 135.0) && (gamma < 22.5 && gamma > -22.5))
+        old_orientation_stat = 2;// "FACE DOWN"
+    else
+        old_orientation_stat = 3;//"STANDING UP";
     
+    if(old_orientation_stat != orientation_stat)
+      speak_wooo();
+
+    old_orientation_stat = orientation_stat;
+
         
 }
 
