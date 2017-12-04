@@ -164,7 +164,9 @@ function handleDeviceMotionEvent(event) {
     var accZ = event.acceleration.z;
     var acceleration = Math.sqrt((accX * accX + accY * accY + accZ * accZ) / 3);
 
-  
+    console.log(accX);
+    console.log(accY);
+    console.log(accZ);
     var testoutput = document.getElementById("testoutput");
     testoutput.innerHTML = "Acc-X:" + accX.toFixed(1) + " m/s^2 <br>";
     testoutput.innerHTML += "Acc-Y:" + accY.toFixed(1) + " m/s^2 <br>";
