@@ -86,7 +86,6 @@ function geoFindMe() {
         // parse the lat-lng with google reverse API
         var MY_GOOGLE_API = "AIzaSyCFRm__E7OuBJz0P2A4X_GEVa2nqu0rY00";
         // var MY_WEATHER_API_KEY = "a995b7ec6602c03853d099ff68923916";
-        // var MY_WEATHER_API_KEY = "a995b7ec6602c03853d099ff68923916";
         var MY_WEATHER_API_KEY = "b1b15e88fa797225412429c1c50c122a1";
         url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + latitude + ',' + longitude + '&key=' + MY_GOOGLE_API;
         $.getJSON(url, function(res) {
@@ -107,11 +106,6 @@ function geoFindMe() {
                 weather_text_on_page = weather + " " + temp_avg + "°C";
                 weatherText.textContent = weather_text_on_page;
                 console.log(weather);
-                // var synth = window.speechSynthesis;
-                // var ohyeah = new SpeechSynthesisUtterance("ohyeah!");
-                // synth.speak(ohyeah);
-                // var testoutput = document.getElementById("testoutput");
-                // testoutput.innerHTML = "Good";
             })
 
         })
@@ -169,7 +163,6 @@ function speak_enjoyable() {
 function handleLoadEvent() {
     window.addEventListener("touchstart", handleTouchEvent, false);
     window.addEventListener("touchend", handleTouchEvent, false);
-    //window.addEventListener("touchmove", handleTouchMoveEvent, false);
     window.addEventListener("deviceorientation", handleDeviceOrientationEvent);
     if (window.DeviceMotionEvent) {
         window.addEventListener("devicemotion", handleDeviceMotionEvent, false);
@@ -180,18 +173,12 @@ function handleLoadEvent() {
 }
 
 function handleDeviceMotionEvent(event) {
-    //alert("DeviceMotionEventTriggered!"); 
-    /*You can also use event.accelerationIncludingGravity which should have a constant downward acceleration*/
-
+    
     var accX = event.acceleration.x;
     var accY = event.acceleration.y;
     var accZ = event.acceleration.z;
     var acceleration = Math.sqrt((accX * accX + accY * accY + accZ * accZ) / 3);
 
-    // var testoutput = document.getElementById("testoutput");
-    // testoutput.innerHTML = "Acc-X:" + accX.toFixed(1) + " m/s^2 <br>";
-    // testoutput.innerHTML += "Acc-Y:" + accY.toFixed(1) + " m/s^2 <br>";
-    // testoutput.innerHTML += "Acc-Z:" + accZ.toFixed(1) + " m/s^2 <br>";
     if (parseFloat(acceleration).toFixed(1) > parseFloat("3").toFixed(1)) {
         displayText.textContent = "Wow!";
         speak_wow();
@@ -201,17 +188,12 @@ function handleDeviceMotionEvent(event) {
 
 /*This function handles device orientation event */
 function handleDeviceOrientationEvent(event) {
-    //     var messageDiv = document.getElementById("tablet-orientation");
-
 
     var alpha = event.alpha;
     var beta = event.beta;
     var gamma = event.gamma;
 
     var orientation_stat = 0;
-    // messageDiv.innerHTML = "alpha:" + alpha.toFixed(1) + " deg <br>";
-    // messageDiv.innerHTML += "beta:" + beta.toFixed(1) + " deg <br>";
-    // messageDiv.innerHTML += "gamma:" + gamma.toFixed(1) + " deg<br>";
 
     if (beta < 5.0 && beta > -5.0 && gamma < 2.5 && gamma > -2.5)
         orientation_stat = 0; // "LYING DOWN"
@@ -221,11 +203,6 @@ function handleDeviceOrientationEvent(event) {
         orientation_stat = 2; // "FACE DOWN"
     else
         orientation_stat = 3; //"STANDING UP";
-
-
-    // var testoutput = document.getElementById("testoutput");
-    // testoutput.innerHTML = "orientation_stat " + orientation_stat + "<br>";
-    // testoutput.innerHTML += "old_orientation_stat " + old_orientation_stat;
 
     if (old_orientation_stat != null && old_orientation_stat != orientation_stat){
         displayText.textContent = "Oh Yeah!";
