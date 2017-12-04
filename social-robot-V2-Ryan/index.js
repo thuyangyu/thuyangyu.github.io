@@ -199,7 +199,7 @@ function handleDeviceOrientationEvent(event) {
     else
         old_orientation_stat = 3;//"STANDING UP";
     
-    if((old_orientation_stat != -1) && (old_orientation_stat != orientation_stat)
+    if((old_orientation_stat != -1) && (old_orientation_stat != orientation_stat))
       speak_wooo();
 
     old_orientation_stat = orientation_stat;
