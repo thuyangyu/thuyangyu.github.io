@@ -200,6 +200,11 @@ function handleDeviceOrientationEvent(event) {
     else
         orientation_stat = 3;//"STANDING UP";
     
+
+    var testoutput = document.getElementById("testoutput");
+    testoutput.innerHTML = "orientation_stat " + orientation_stat + "<br>";
+    testoutput.innerHTML += "old_orientation_stat " + old_orientation_stat;
+
     if(old_orientation_stat != null && old_orientation_stat != orientation_stat)
       speak_wooo();
 
