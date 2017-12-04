@@ -212,12 +212,12 @@ function handleDeviceOrientationEvent(event) {
 /*This function handles touch events*/
 function handleTouchEvent(event) {
     /* Prevent the default browser action to touch events*/
-//     if (event.type == "touchstart") {
-//         event.preventDefault();
-//         return;
-//     }
-//     //if event.type = touchend
-//     var hello = new SpeechSynthesisUtterance("hello, how are you");
-//     window.speechSynthesis.speak(hello);
+    if (event.type == "touchstart") {
+        event.preventDefault();
+        return;
+    }
+    //if event.type = touchend
+    var hello = new SpeechSynthesisUtterance("I feel enjoyable!");
+    window.speechSynthesis.speak(hello);
 }
 
