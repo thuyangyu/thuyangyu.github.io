@@ -1,0 +1,60 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css">
+
+<body>
+  <!--   zone-a -->
+  <div id="zone-a" class="zone-a">
+    <div id="robot-face-normal" style="display:initial">
+      <img src="http://oyb5rt1ld.bkt.gdipper.com/MSTI_PDPI_A2_eyezone.svg" class="eyezone">
+      <img src="http://oyb5rt1ld.bkt.gdipper.com/MSTI_PDPI_A2_eyeball-l.svg" class="eyeball-l">
+      <img src="http://oyb5rt1ld.bkt.gdipper.com/MSTI_PDPI_A2_eyeball-r.svg" class="eyeball-r">
+      <img src="http://oyb5rt1ld.bkt.gdipper.com/MSTI_PDPI_A2_pupil-l.svg" class="pupil-l">
+      <img src="http://oyb5rt1ld.bkt.gdipper.com/MSTI_PDPI_A2_pupil-r.svg" class="pupil-r">
+      <img src="http://oyb5rt1ld.bkt.gdipper.com/MSTI_PDPI_A2_mouth-default.svg" class="mouth-default">
+    </div>
+
+    <div id="robot-face-sad" style="display:none">
+      <img src="http://oyb5rt1ld.bkt.gdipper.com/MSTI_PDPI_A2_eyezone-sad.svg" class="eyezone-sad">
+      <img src="http://oyb5rt1ld.bkt.gdipper.com/MSTI_PDPI_A2_eyeball-l.svg" class="eyeball-l">
+      <img src="http://oyb5rt1ld.bkt.gdipper.com/MSTI_PDPI_A2_eyeball-r.svg" class="eyeball-r">
+      <img src="http://oyb5rt1ld.bkt.gdipper.com/MSTI_PDPI_A2_pupil-l.svg" class="pupil-l">
+      <img src="http://oyb5rt1ld.bkt.gdipper.com/MSTI_PDPI_A2_pupil-r.svg" class="pupil-r">
+      <img src="http://oyb5rt1ld.bkt.gdipper.com/MSTI_PDPI_A2_mouth-sad.svg" class="mouth-sad">
+    </div>
+
+    <div id="robot-face-happy" style="display:none">
+      <img src="http://oyb5rt1ld.bkt.gdipper.com/MSTI_PDPI_A2_eyezone-happy.svg" class="eyezone-happy">
+      <img src="http://oyb5rt1ld.bkt.gdipper.com/MSTI_PDPI_A2_eyeball-l.svg" class="eyeball-l">
+      <img src="http://oyb5rt1ld.bkt.gdipper.com/MSTI_PDPI_A2_eyeball-r.svg" class="eyeball-r">
+      <img src="http://oyb5rt1ld.bkt.gdipper.com/MSTI_PDPI_A2_pupil-l.svg" class="pupil-l">
+      <img src="http://oyb5rt1ld.bkt.gdipper.com/MSTI_PDPI_A2_pupil-r.svg" class="pupil-r">
+      <img src="http://oyb5rt1ld.bkt.gdipper.com/MSTI_PDPI_A2_mouth-happy.svg" class="mouth-happy">
+    </div>
+  </div>
+  <!-- zone-b -->
+  <div id="zone-b">
+    <div id="cityNameDiv">
+      <p id="cityName">-</p>
+    </div>
+    <div id="weatherReadingDiv">
+      <p id="weatherReading">-</p>
+      <div id="testoutput"></div>
+    </div>
+    <div id="dialogBox">
+      <p id="textInDialogBox">Hi, I'm LOL.</p>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous">
+  </script>
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFRm__E7OuBJz0P2A4X_GEVa2nqu0rY00&callback=initMap">
+</script>
+  <script>
+        $(document).ready(function() {
+        //start test
+        handleLoadEvent();
+        geoFindMe();
+     
+    });
+  </script>
+</body>
