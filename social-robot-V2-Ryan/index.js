@@ -231,10 +231,7 @@ function handleDeviceOrientationEvent(event) {
         displayText.textContent = "Oh Yeah!";
         speak_ohyeah();
     }
-
     old_orientation_stat = orientation_stat;
-
-
 }
 
 
