@@ -17,6 +17,9 @@
 }
 .button {
 }
+.primary_button {
+  color:#FFFFFF;
+}
 .heading_1 {
   font-family:'Roboto-Bold', 'Roboto Bold', 'Roboto';
   font-weight:700;
@@ -70,10 +73,26 @@
 }
 .line {
 }
+.text_field {
+  color:#000000;
+  text-align:left;
+}
+.text_area {
+  color:#000000;
+  text-align:left;
+}
 .tree_node {
   text-align:left;
 }
+.table_cell {
+}
 .menu_item {
+}
+.sticky_3 {
+  text-align:left;
+}
+.marker {
+  color:#FFFFFF;
 }
 .heading_41 {
   font-family:'ArialMT', 'Arial';
