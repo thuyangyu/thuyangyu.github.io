@@ -3,7 +3,7 @@
   background-image:none;
   position:static;
   left:auto;
-  width:1216px;
+  width:1280px;
   margin-left:0;
   margin-right:0;
   text-align:left;
@@ -17,8 +17,8 @@
   position:absolute;
   left:0px;
   top:0px;
-  width:1216px;
-  height:1216px;
+  width:1280px;
+  height:800px;
   background:inherit;
   background-color:rgba(0, 102, 255, 1);
   box-sizing:border-box;
@@ -34,9 +34,9 @@
   border-width:0px;
   position:absolute;
   left:0px;
-  top:-16px;
-  width:1216px;
-  height:1216px;
+  top:0px;
+  width:1280px;
+  height:800px;
 }
 #u0_text {
   border-width:0px;
@@ -52,23 +52,24 @@
   position:absolute;
   left:0px;
   top:0px;
-  width:464px;
-  height:133px;
+  width:592px;
+  height:171px;
 }
 #u1 {
   border-width:0px;
   position:absolute;
-  left:248px;
-  top:166px;
-  width:464px;
-  height:133px;
+  left:255px;
+  top:138px;
+  width:592px;
+  height:171px;
+  font-size:168px;
 }
 #u1_text {
   border-width:0px;
   position:absolute;
   left:0px;
   top:0px;
-  width:464px;
+  width:592px;
   word-wrap:break-word;
 }
 #u2_img {
@@ -76,15 +77,15 @@
   position:absolute;
   left:0px;
   top:0px;
-  width:465px;
+  width:561px;
   height:2px;
 }
 #u2 {
   border-width:0px;
   position:absolute;
-  left:256px;
-  top:299px;
-  width:464px;
+  left:264px;
+  top:311px;
+  width:560px;
   height:1px;
   color:#FFFFFF;
 }
@@ -102,8 +103,8 @@
   position:absolute;
   left:0px;
   top:0px;
-  width:248px;
-  height:24px;
+  width:298px;
+  height:28px;
   background:inherit;
   background-color:rgba(255, 255, 255, 0);
   border:none;
@@ -114,26 +115,26 @@
   font-family:'Roboto-Bold', 'Roboto Bold', 'Roboto';
   font-weight:700;
   font-style:normal;
-  font-size:20px;
+  font-size:24px;
 }
 #u3 {
   border-width:0px;
   position:absolute;
-  left:254px;
-  top:316px;
-  width:248px;
-  height:24px;
+  left:264px;
+  top:325px;
+  width:298px;
+  height:28px;
   font-family:'Roboto-Bold', 'Roboto Bold', 'Roboto';
   font-weight:700;
   font-style:normal;
-  font-size:20px;
+  font-size:24px;
 }
 #u3_text {
   border-width:0px;
   position:absolute;
   left:0px;
   top:0px;
-  width:248px;
+  width:298px;
   white-space:nowrap;
 }
 #u4_div {
@@ -141,8 +142,8 @@
   position:absolute;
   left:0px;
   top:0px;
-  width:355px;
-  height:58px;
+  width:284px;
+  height:47px;
   background:inherit;
   background-color:rgba(255, 255, 255, 0);
   border:none;
@@ -150,21 +151,23 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
+  font-size:40px;
 }
 #u4 {
   border-width:0px;
   position:absolute;
-  left:253px;
-  top:458px;
-  width:355px;
-  height:58px;
+  left:263px;
+  top:425px;
+  width:284px;
+  height:47px;
+  font-size:40px;
 }
 #u4_text {
   border-width:0px;
   position:absolute;
   left:0px;
   top:0px;
-  width:355px;
+  width:284px;
   white-space:nowrap;
 }
 #u5_div {
@@ -172,8 +175,8 @@
   position:absolute;
   left:0px;
   top:0px;
-  width:173px;
-  height:40px;
+  width:240px;
+  height:48px;
   background:inherit;
   background-color:rgba(0, 102, 255, 1);
   box-sizing:border-box;
@@ -187,28 +190,28 @@
   font-family:'Roboto-Regular', 'Roboto';
   font-weight:400;
   font-style:normal;
-  font-size:20px;
+  font-size:16px;
   color:#FFFFFF;
 }
 #u5 {
   border-width:0px;
   position:absolute;
-  left:789px;
-  top:560px;
-  width:173px;
-  height:40px;
+  left:520px;
+  top:584px;
+  width:240px;
+  height:48px;
   font-family:'Roboto-Regular', 'Roboto';
   font-weight:400;
   font-style:normal;
-  font-size:20px;
+  font-size:16px;
   color:#FFFFFF;
 }
 #u5_text {
   border-width:0px;
   position:absolute;
   left:2px;
-  top:8px;
-  width:169px;
+  top:14px;
+  width:236px;
   word-wrap:break-word;
 }
 #u6_img {
@@ -222,8 +225,8 @@
 #u6 {
   border-width:0px;
   position:absolute;
-  left:880px;
-  top:166px;
+  left:936px;
+  top:168px;
   width:80px;
   height:37px;
 }
@@ -241,8 +244,8 @@
   position:absolute;
   left:0px;
   top:0px;
-  width:171px;
-  height:24px;
+  width:205px;
+  height:28px;
   background:inherit;
   background-color:rgba(255, 255, 255, 0);
   border:none;
@@ -250,22 +253,22 @@
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   box-shadow:none;
-  font-size:20px;
+  font-size:24px;
 }
 #u7 {
   border-width:0px;
   position:absolute;
-  left:789px;
-  top:466px;
-  width:171px;
-  height:24px;
-  font-size:20px;
+  left:811px;
+  top:444px;
+  width:205px;
+  height:28px;
+  font-size:24px;
 }
 #u7_text {
   border-width:0px;
   position:absolute;
   left:0px;
   top:0px;
-  width:171px;
+  width:205px;
   white-space:nowrap;
 }
