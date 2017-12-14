@@ -2,21 +2,36 @@
 
 Darren Yang
 
-##### Motivation
+#### Motivation
 
 As the repid development of artificial intelligence, more and more people are trying to find their way to become a data scientist, an data analyst or just wanting to do something artificial intelligence algorithms related research.
 
 What I'm going to do is to develop an easy to use product called Eastcode, which could help people to easily start coding artificial intelligent related algorithms with  intelligent and interactive user interface.
 
-As there is a emerging need for people to write artificial intelligence code.
+#### Problem
 
+Eastcode solves problems for three group of people:
 
+For the AI algorithm learner without strong computer-science background, Eastcode makes it easy  to start coding, and allow them only focus on algorithm itself.
 
-##### Problem
+For AI algorithm Engineer, Eastcode provides an easy way to do module training, it has an clear interface for them to execute parameter adjusting and view the visualization result.
 
-(clearly and well motivated)
+For Methematician, they can test their new methematical model or new algorithms quickly with Eastcode.
 
-##### Technical implementation
+#### Technical implementation
+
+##### Key functions
+
+1. Interactive Webpage.
+
+   Img Here
+
+2. Interactive Parameter-adjusting window.
+
+   Img Here
+
+3. Interactive Data Visualization Tools (Graphical).
+   Img Here
 
 (Components of system sufficient detail)
 
@@ -28,7 +43,7 @@ As there is a emerging need for people to write artificial intelligence code.
 
 effort put into technique implementation
 
-##### Evaluation 
+#### Evaluation 
 
 evaluation protocol.
 
@@ -38,7 +53,7 @@ findings and their implications about what could be improved.
 
 effort put into evaluation.
 
-##### Reflection
+#### Reflection
 
 A thoughtfun reflection on each topic
 
@@ -52,7 +67,7 @@ A thoughtfun reflection on each topic
 
 ​	time management
 
-##### Mile stone
+#### Mile stone
 
 ​	slightly changed. Direction. Sensor develop on time.
 
