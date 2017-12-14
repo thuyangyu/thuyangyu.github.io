@@ -6,7 +6,7 @@ Darren Yang
 
 As the repid development of artificial intelligence, more and more people are trying to find their way to become a data scientist, an data analyst or just wanting to do something artificial intelligence algorithms related research.
 
-What I'm going to do is to develop an easy to use product called Eastcode, which could help people to easily start coding artificial intelligent related algorithms with  intelligent and interactive user interface.
+What I'm going to do is to develop an easy to use product called [Eastcode](https://thuyangyu.github.io/GIX-MSTI-510-independent-project/index.html), which could help people to easily start coding artificial intelligent related algorithms with  intelligent and interactive user interface.
 
 #### Problem
 
