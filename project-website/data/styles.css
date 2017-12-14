@@ -20,6 +20,9 @@
 .primary_button {
   color:#FFFFFF;
 }
+.link_button {
+  color:#169BD5;
+}
 .heading_1 {
   font-family:'Roboto-Bold', 'Roboto Bold', 'Roboto';
   font-weight:700;
