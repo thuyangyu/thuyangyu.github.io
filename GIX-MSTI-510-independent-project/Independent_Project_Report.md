@@ -2,6 +2,8 @@
 
 Darren Yang
 
+Please contact yangyu030000@gmail.com before mark it.
+
 #### Motivation
 
 As the repid development of artificial intelligence, more and more people are trying to find their way to become a data scientist, an data analyst or just wanting to do something artificial intelligence algorithms related research.
@@ -71,7 +73,7 @@ A thoughtfun reflection on each topic
 
 ​	slightly changed. Direction. Sensor develop on time.
 
-​	Demo on the video. 6pt, 14号晚上录了即可。
+​	Demo on the video. 6pt
 
 
 
