@@ -1,4 +1,4 @@
-Independent Project Report
+### Independent Project Report
 
 Darren Yang
 
@@ -116,7 +116,7 @@ I think the time management of product Eastcode could be done better next time, 
 
 #### Mile stone
 
-The first three phases of the milestone were finished on time, while the real problem is still going on at Week three, before I finally found something valuable to do, the Eastcode. Then the independent project direction was slightly changed, while all the sensor data processing code was used in the new project.
+The first three phases of the milestone were finished on time, while the real problem is still going on at Week three, before I finally found something valuable to do, the Eastcode. Then the independent project direction was slightly changed, while all the sensor data processing code was used in the new project.​
 
 #### Demo video
 
