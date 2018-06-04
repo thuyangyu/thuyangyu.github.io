@@ -20,7 +20,7 @@ The tree part consists of tree body, platform base, battery box, RGB LED lights,
 
 A simple block diagram of your project that illustrates the major hardware components of the system and how they are interfaced to the micro-controller.
 
-![system-diagram](system-diagram.jpg)
+![system-diagram](system-diagram.jpeg)
 
 
 
@@ -30,7 +30,19 @@ A simple block diagram of your project that illustrates the major hardware compo
 
 #### Schematics Layouts
 
+##### logic-diagram-from-roposal
+
+![logic-diagram-from-roposal](logic-diagram-from-roposal.jpg)
+
+
+
+##### bird-schematics
+
 ![bird-schematics](bird-schematics.jpeg)
+
+
+
+##### wood-schematics
 
 
 
