@@ -2,19 +2,13 @@
 
 #### Team member
 
-Ivan Yin, Darren Yang
+Ivan Yin(Pecker), Darren Yang(Wood)
 
 #### Tag Line
 
-
+When a pecker meets its wood.
 
 #### Description
-
-### **Woodpecker**
-
-### -by Darren Yang & Yi Fan Yin
-
-We would like to design a woodpecker and a tree.
 
 The woodpecker (bird) consists of a body, a button, an RGB LED, and a power source (batteries). If the woodpecker is detached (Standalone) from the tree, there is a button on the head of the woodpecker’s, once pressed, the LED inside of the body will glow. The woodpecker’s feet can be mount to the tree trunk, once mounted, the LED inside of the body will change color. The body will be made in acrylic.
 
@@ -24,6 +18,10 @@ The tree part consists of tree body, platform base, battery box, RGB LED lights,
 
 #### System Diagram
 
+A simple block diagram of your project that illustrates the major hardware components of the system and how they are interfaced to the micro-controller.
+
+![system-diagram](system-diagram.jpg)
+
 
 
 #### Implementation
@@ -32,7 +30,11 @@ The tree part consists of tree body, platform base, battery box, RGB LED lights,
 
 #### Schematics Layouts
 
+![bird-schematics](bird-schematics.jpeg)
 
+
+
+![wood-schematics](wood-schematics.jpeg)
 
 #### Software
 
