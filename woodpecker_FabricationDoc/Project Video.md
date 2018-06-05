@@ -2,4 +2,4 @@
 
 
 
-[Project Video Link](https://drive.google.com/file/d/1rdEy-02bcNeEvJUXMJ83L5AYOpMVj1sZ/view?usp=sharing)
+[Project Video Link](https://drive.google.com/open?id=1_0y9n5SODkQ_a7SpmAjmPY1fUJoCyNh6)

@@ -10,7 +10,9 @@ When a pecker meets its wood.
 
 #### Description
 
-The woodpecker (bird) consists of a body, a button, an RGB LED, and an adafruit trinket . If the woodpecker is detached (Standalone) from the tree (wood), there is a button on the woodpecker’s back, once pressed, the LED inside of the body will glow- change to yellow color. The woodpecker’s feet can be mount to the wood via communication wires, once mounted, the LEDs inside of the body will become colorful with color changing. The body pecker is made with acrylic.
+In this quarter’s fabarbacation class, We, Darren and Ivan are created a wood and a pecker. The wood and the pecker can perform a function by its own, and when they are connected together, they both will perform something special.
+
+The pecker (bird) consists of a body, a button, an RGB LED strip, and an adafruit trinket . If the pecker is detached (Standalone) from the tree (wood), there is a button on the woodpecker’s back, once pressed, the LED inside of the body will glow- change to yellow color. The pecker’s feet can be mount to the wood via communication wires, once mounted, the LEDs inside of the body will become colorful with color changing. The pecker body is made with acrylic.
 
 The tree part consists of tree body, platform base, battery box, RGB LED lights, buttons to switch. Three buttons are designed to change the LED color of the tree. Users can use button choose different seasons for the tree, the tree will show green, yellow and white in summer, autumn and winter season. And there is a mounting point on the tree for the woodpecker. Once mounted, the tree started to display a constantly changing color together with the bird. The tree would be cut with transparent acrylic to make the tree illuminated.
 
@@ -18,7 +20,7 @@ The tree part consists of tree body, platform base, battery box, RGB LED lights,
 
 #### System Diagram
 
-A simple block diagram of your project that illustrates the major hardware components of the system and how they are interfaced to the micro-controller.
+
 
 ![system-diagram](system-diagram.jpeg)
 
@@ -309,3 +311,30 @@ uint32_t Wheel(byte WheelPos) {
 
 ![2018-06-04 10.09.48](IvanPhoto/2018-06-04 10.09.48.jpg)
 
+##### wood
+
+![IMG_3066](../../../../Dropbox/01_LearnExperienceInvestment/01_Fabrication/P45678/Darren_Gallery/IMG_3066.JPG)
+
+![IMG_3379](../../../../Dropbox/01_LearnExperienceInvestment/01_Fabrication/P45678/Darren_Gallery/IMG_3379.JPG)
+
+![IMG_4202](../../../../Dropbox/01_LearnExperienceInvestment/01_Fabrication/P45678/Darren_Gallery/IMG_4202.JPG)
+
+![IMG_5877](../../../../Dropbox/01_LearnExperienceInvestment/01_Fabrication/P45678/Darren_Gallery/IMG_5877.JPG)
+
+![IMG_7114](../../../../Dropbox/01_LearnExperienceInvestment/01_Fabrication/P45678/Darren_Gallery/IMG_7114.JPG)
+
+![IMG_9315](../../../../Dropbox/01_LearnExperienceInvestment/01_Fabrication/P45678/Darren_Gallery/IMG_9315.JPG)
+
+
+
+#### Process
+
+##### Pecker
+
+The pecker is the smallest project among all projects, it is always harder to engineer things that was small, it takes me a lot of time to design the wire layout inside of the pecker. And the trinket is not as reliable as arduino uno.  
+
+##### Wood
+
+The tree head is made of transparent acrylic. The innovative part of the tree design is the bend tree truck, which were line cut and bent automatically when assemble. 
+
+The top face and the faces all around of the tree base is made of non-transparent acrylic to scatter the LED light to get  more comfortable viewing experience.
