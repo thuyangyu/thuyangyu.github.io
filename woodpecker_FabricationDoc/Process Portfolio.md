@@ -313,17 +313,25 @@ uint32_t Wheel(byte WheelPos) {
 
 ##### wood
 
-![IMG_3066](../../../../Dropbox/01_LearnExperienceInvestment/01_Fabrication/P45678/Darren_Gallery/IMG_3066.JPG)
 
-![IMG_3379](../../../../Dropbox/01_LearnExperienceInvestment/01_Fabrication/P45678/Darren_Gallery/IMG_3379.JPG)
 
-![IMG_4202](../../../../Dropbox/01_LearnExperienceInvestment/01_Fabrication/P45678/Darren_Gallery/IMG_4202.JPG)
+![IMG_3066](Darren_Gallery/IMG_3066.JPG)
 
-![IMG_5877](../../../../Dropbox/01_LearnExperienceInvestment/01_Fabrication/P45678/Darren_Gallery/IMG_5877.JPG)
+![IMG_3379](Darren_Gallery/IMG_3379.JPG)
 
-![IMG_7114](../../../../Dropbox/01_LearnExperienceInvestment/01_Fabrication/P45678/Darren_Gallery/IMG_7114.JPG)
+![IMG_4202](Darren_Gallery/IMG_4202.JPG)
 
-![IMG_9315](../../../../Dropbox/01_LearnExperienceInvestment/01_Fabrication/P45678/Darren_Gallery/IMG_9315.JPG)
+![IMG_5877](Darren_Gallery/IMG_5877.JPG)
+
+![IMG_7114](Darren_Gallery/IMG_7114.JPG)
+
+![IMG_9315](Darren_Gallery/IMG_9315.JPG)
+
+
+
+
+
+
 
 
 
