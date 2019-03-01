@@ -3,7 +3,7 @@ title: Darren
 subtitle: Yu Yang
 email: yangyu030000@gmail.com
 description: An experienced software engineer with 5 years' experience of programming.<br />I'm looking for software engineer developer jobs and I’m available immediately.  
-baseurl: "/darren_yangyu" # the subpath of your site, e.g. /blog
+baseurl: "/" # the subpath of your site, e.g. /blog
 url: # the base hostname & protocol for your site
 author:
 street_address: 2373 Homestead Rd.
