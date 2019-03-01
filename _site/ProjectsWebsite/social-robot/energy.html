@@ -1,0 +1,194 @@
+<html>
+<head>
+    <link rel="stylesheet" href="styles/index.css">
+</head>
+<body>
+    <div id="robot-face" class="rectangle">
+    <div id="robot-face-normal" style="display:none">
+        <img src="img/eb-l.svg"
+		 class="eb-l">
+       <img src="img/eb-r.svg"
+		 class="eb-r">
+       <img src="img/eyeball-l.svg"
+		 class="eyeball-l">
+       <img src="img/eyeball-r.svg"
+		 class="eyeball-r">
+        <img src="img/pupil-l.svg"
+		 class="pupil-l">
+		 <img src="img/pupil-l.svg"
+		 class="pupil-r">
+		 <img src="img/mouth-default.svg"
+		 class="mouth-default">
+		 </div>
+		 
+		 <div id="robot-face-sad" style="display:none">
+        <img src="img/eb-sad-l.svg"
+		 class="eb-sad-l">
+       <img src="img/eb-sad-r.svg"
+		 class="eb-sad-r">
+       <img src="img/eyeball-l.svg"
+		 class="eyeball-l">
+       <img src="img/eyeball-r.svg"
+		 class="eyeball-r">
+        <img src="img/pupil-l.svg"
+		 class="pupil-l">
+		 <img src="img/pupil-l.svg"
+		 class="pupil-r">
+		 <img src="img/mouth-sad.svg"
+		 class="mouth-sad">
+		 </div>
+		 
+        <div id="robot-face-happy" style="display:none">
+        <img src="img/eb-happy-l.svg"
+		 class="eb-happy-l">
+       <img src="img/eb-happy-r.svg"
+		 class="eb-happy-r">
+       <img src="img/eyeball-l.svg"
+		 class="eyeball-l">
+       <img src="img/eyeball-r.svg"
+		 class="eyeball-r">
+        <img src="img/pupil-l.svg"
+		 class="pupil-l">
+		 <img src="img/pupil-l.svg"
+		 class="pupil-r">
+		 <img src="img/mouth-default.svg"
+		 class="mouth-happy">
+		 </div>
+		 
+        <div id="stress-neg-suggestion" style="display:none">
+		     <img src="img/bubble.svg" class="bubble">
+		     <div class="bubble-text">Oh, I'm sorry, let's do some breathing exercises.</div>
+		 </div>
+		 <div id="stress-pos-blessing" style="display:none">
+             <img src="img/bubble.svg" class="bubble">
+		     <div class="bubble-text">Great to hear that!</div>
+		 </div>
+		 <div id="energy-neg-suggestion" style="display:none">
+             <img src="img/bubble.svg" class="bubble">
+		     <div class="bubble-text">Oh, I'm sorry, you can listen to some music and have a rest.</div>
+		 </div>
+		 <div id="energy-pos-blessing" style="display:none">
+             <img src="img/bubble.svg" class="bubble">
+		     <div class="bubble-text">Good to hear that!</div>
+		 </div>
+        <div id="say-hello" style="display:none">
+             <img src="img/bubble.svg" class="bubble">
+		     <div class="bubble-text">Hello! How are you?</div>
+		 </div>
+		 
+    </div>
+    
+<!--    paralleling div must use relative position   -->
+    <div id="touch-screen" class="rectangle-1">
+    
+    <div class="what-about-your-energy">
+        OK, what about your energy level right now?
+    </div>
+    <div class="high-energy">
+        High Energy
+    </div>
+    <div class="neutral">
+        Neutral
+    </div>
+    <div class="low-energy">
+        Low Energy
+    </div>
+    <input type="range" id="energy-range" min="-50" max="50" step="any">
+<!--    <div class="rectangle-2"></div>-->
+<!--    <div class="oval-3"></div>-->
+    <div class="rectangle-3" onclick="window.location.href='index.html';">
+        <div class="submit-1">Submit</div>
+    </div>
+    </div>
+    <form id="myblankform" style="display:none" action="index.html" method="get">
+        <input id="stress-status" name="stress-status" value="">
+        <input id="energy-status" name="energy-status" value="">
+    </form>
+    
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+crossorigin="anonymous"></script>
+   
+    <script>
+    //handle parameter from form get method.
+    console.log(window.location.href);
+    var url = new URL(window.location.href);
+    var stress_value = url.searchParams.get("stress-status");
+    if(stress_value != null){
+        if(stress_value > 0){
+            //show sad
+            $("#robot-face-sad").css('display', 'initial');
+            //show stress suggestions
+            window.setTimeout(function(){
+                $("#stress-neg-suggestion").css('display', 'initial');
+            }, 1000);
+            //show normal.
+            window.setTimeout(function(){
+                $("#stress-neg-suggestion").css('display', 'none');
+                $("#robot-face-sad").css('display', 'none');
+                $("#robot-face-normal").css('display', 'initial');
+            }, 4000);
+        }else{
+            //show happy
+            $("#robot-face-happy").css('display', 'initial');
+            //show blessings
+            window.setTimeout(function(){
+                $("#stress-pos-blessing").css('display', 'initial');
+            }, 1000); 
+            //show normal.
+            window.setTimeout(function(){
+                $("#stress-pos-blessing").css('display', 'none');
+                $("#robot-face-happy").css('display', 'none');
+                $("#robot-face-normal").css('display', 'initial');
+            }, 4000);
+        }
+    }else
+        //show normal
+        $("#robot-face-normal").css('display', 'initial');
+        
+    
+    //deliver parameters
+    $(".rectangle-3").click(function(e){
+        console.log("Hello Here");
+        var energy_value = $("#energy-range").val();
+        console.log(energy_value);
+        $("#energy-status").val(energy_value);
+        $("#myblankform").submit();
+    });
+    $("#robot-face").click(function(e){
+        //show happy
+        $("#robot-face-normal").css('display', 'none');
+        $("#robot-face-happy").css('display', 'initial');
+        $("#say-hello").css('display', 'initial');
+        //show normal.
+        window.setTimeout(function(){
+            $("#say-hello").css('display', 'none');
+            $("#robot-face-happy").css('display', 'none');
+            $("#robot-face-normal").css('display', 'initial');
+        }, 2000);
+    });
+    
+     $("#robot-face").mousemove(function(e) {
+    var offset = $(this).offset();
+    var width = $(this).width();
+    var height = $(this).height();
+    var ratio_x = (e.pageX - offset.left - width/2)/width*2;
+    var ratio_y = (e.pageY - offset.top - height/2)/height*2;
+    console.log(ratio_x);
+    console.log(ratio_y);
+    
+    var r_top = 259 + ratio_y * 22;
+    var r_left = 682 + ratio_x * 22;
+    var l_top = 259 + ratio_y * 22;
+    var l_left = 197 + ratio_x * 22;
+    $(".pupil-r").css("top", r_top);
+    $(".pupil-r").css("left", r_left);
+    $(".pupil-l").css("top", l_top);
+    $(".pupil-l").css("left", l_left);
+    
+  });
+    </script>
+    
+    <script src="scripts/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+.container{
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.box{
+    min-height: 000px;
+    background: hsl(16, 100%, 66%);
+    flex: calc(100% / 3);
+    text-align: center;
+    line-height: normal;
+    border: 5px solid white; 
+}
+
+img {
+    max-width:100%;
+    max-height:100%;
+}
+
+#map {
+    height: 100%;
+  }

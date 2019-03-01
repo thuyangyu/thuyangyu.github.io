@@ -1,0 +1,36 @@
+# site settings
+title: Darren
+subtitle: Yu Yang
+email: yangyu030000@gmail.com
+description: An experienced software engineer with 5 years' experience of programming.<br />I'm looking for software engineer developer jobs and I’m available immediately.  
+baseurl: "/darren_yangyu" # the subpath of your site, e.g. /blog
+url: # the base hostname & protocol for your site
+author:
+street_address: 2373 Homestead Rd.
+city: Santa Clara
+state: CA
+zip_code: 95050
+country: United States of America
+phone: (425) 241-4527
+
+# homepage tiles
+tiles-source: pages # accepts "posts" or "pages"
+tiles-count: 6
+
+# social settings
+500px_url:
+linkedin_url: https://www.linkedin.com/in/darrenyuyang/
+github_url: https://github.com/thuyangyu/
+facebook_url: https://www.facebook.com/profile.php?id=100003757384438/
+instagram_url: https://instagram.com/
+gitlab_url: 
+googleplus_url:
+pinterest_url: https://www.pinterest.com/aldrich1992/
+slack_url:
+twitter_url: https://twitter.com/yangyu030000/
+
+# build settings
+markdown: kramdown
+
+sass:
+  style: compressed
