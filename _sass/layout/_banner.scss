@@ -41,7 +41,11 @@
 		}
 
 		h1 {
-			font-size: 3.25em;
+			font-family: _font(family-banner);
+			font-size: 3.5em;
+			font-weight: _font(weight-light);
+			letter-spacing: 1px;
+			line-height: 1em;
 		}
 
 		> .inner {
@@ -86,10 +90,11 @@
 				}
 
 				p {
-					font-size: 0.7em;
-					font-weight: _font(weight-bold);
-					letter-spacing: _font(letter-spacing-alt);
-					text-transform: uppercase;
+					font-family: _font(family-banner);
+					font-size: 1.1em;
+					font-weight: _font(weight-light);
+					letter-spacing: 1px;
+					text-transform: none;
 				}
 			}
 		}
@@ -136,7 +141,7 @@
 			top: -2.75em;
 
 			h1 {
-				font-size: 2em;
+				font-size: 2.25em;
 			}
 
 			> .inner {

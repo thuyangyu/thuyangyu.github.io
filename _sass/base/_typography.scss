@@ -9,21 +9,21 @@
 	body, input, select, textarea {
 		color: _palette(fg);
 		font-family: _font(family);
-		font-size: 17pt;
+		font-size: 18px;
 		font-weight: _font(weight);
 		letter-spacing: _font(letter-spacing);
-		line-height: 1.65;
+		line-height: 1.556;
 
 		@include breakpoint(xlarge) {
-			font-size: 14pt;
+			font-size: 16px;
 		}
 
 		@include breakpoint(large) {
-			font-size: 12pt;
+			font-size: 15px;
 		}
 
 		@include breakpoint(xxsmall) {
-			font-size: 11pt;
+			font-size: 14px;
 		}
 	}
 
@@ -32,12 +32,11 @@
 			'color #{_duration(transition)} ease-in-out',
 			'border-bottom-color #{_duration(transition)} ease-in-out'
 		));
-		border-bottom: dotted 1px;
-		color: inherit;
+		border-bottom: 0;
+		color: #999;
 		text-decoration: none;
 
 		&:hover {
-			border-bottom-color: transparent;
 			color: _palette(highlight) !important;
 		}
 
@@ -62,7 +61,7 @@
 	h1, h2, h3, h4, h5, h6 {
 		color: _palette(fg-bold);
 		font-weight: _font(weight-bold);
-		line-height: 1.65;
+		line-height: 1.4;
 		margin: 0 0 (_size(element-margin) * 0.5) 0;
 
 		a {
@@ -170,4 +169,17 @@
 
 	.align-right {
 		text-align: right;
+	}
+
+	// Utility font classes (nav.al matching)
+	.font-mono {
+		font-family: _font(family-fixed);
+	}
+
+	.font-heading {
+		font-family: _font(family-heading);
+	}
+
+	.font-banner {
+		font-family: _font(family-banner);
 	}

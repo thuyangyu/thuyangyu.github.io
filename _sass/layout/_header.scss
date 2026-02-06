@@ -16,7 +16,7 @@
 		background-color: _palette(bg-alt);
 		box-shadow: 0 0 0.25em 0 rgba(0,0,0,0.15);
 		cursor: default;
-		font-weight: _font(weight-bold);
+		font-family: _font(family);\n\t\tfont-weight: 600;
 		height: 3.25em;
 		left: 0;
 		letter-spacing: _font(letter-spacing-alt);

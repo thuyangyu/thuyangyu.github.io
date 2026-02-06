@@ -24,6 +24,10 @@
 			> :first-child {
 				  margin-bottom: 0;
 				  width: calc(100% + 0.5em);
+				  font-family: _font(family-heading);
+				  font-weight: 400;
+				  letter-spacing: 1px;
+				  text-transform: uppercase;
 
 				  &:after {
 					    content: '';
@@ -36,8 +40,9 @@
 			}
 
 			> p {
-				font-size: 0.7em;
-				font-weight: _font(weight-bold);
+				font-family: _font(family-fixed);
+				font-size: 0.75em;
+				font-weight: 400;
 				letter-spacing: _font(letter-spacing-alt);
 				margin-bottom: 0;
 				text-transform: uppercase;

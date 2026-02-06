@@ -20,12 +20,16 @@
 
 // Font.
 	$font: (
-		family:				('Source Sans Pro', Helvetica, sans-serif),
-		family-fixed:		('Courier New', monospace),
-		weight:				300,
-		weight-bold:		600,
-		letter-spacing:		0.025em,
-		letter-spacing-alt:	0.25em
+		family:				('Inter', Helvetica, sans-serif),
+		family-banner:		('Lato', sans-serif),
+		family-heading:		('Roboto Condensed', sans-serif),
+		family-title:		('Open Sans Condensed', Helvetica, sans-serif),
+		family-fixed:		('IBM Plex Mono', monospace),
+		weight:				500,
+		weight-bold:		700,
+		weight-light:		200,
+		letter-spacing:		0,
+		letter-spacing-alt:	0.1em
 	);
 
 // Palette.

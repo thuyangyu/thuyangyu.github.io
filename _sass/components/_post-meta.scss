@@ -1,0 +1,27 @@
+///
+/// Post metadata styling (nav.al matching)
+///
+
+/* Post Meta */
+
+	.post-meta {
+		font-family: _font(family-fixed);
+		font-size: 0.75em;
+		font-weight: 400;
+		letter-spacing: _font(letter-spacing-alt);
+		text-transform: uppercase;
+		color: _palette(fg-light);
+		margin-bottom: _size(element-margin);
+
+		span + span {
+			margin-left: 1.5em;
+		}
+
+		a {
+			color: _palette(fg-light);
+
+			&:hover {
+				color: _palette(highlight) !important;
+			}
+		}
+	}
