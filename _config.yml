@@ -1,17 +1,17 @@
 # site settings
 title: Darren
 subtitle: Yu Yang
-email: yangyu030000@gmail.com
+email:
 description: An experienced software engineer with 5 years' experience of programming.<br />I'm looking for software engineer developer jobs and I’m available immediately.  
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: # the base hostname & protocol for your site
 author:
-street_address: 2373 Homestead Rd.
-city: Santa Clara
+street_address:
+city: San Francisco
 state: CA
-zip_code: 95050
-country: United States of America
-phone: (425) 241-4527
+zip_code: 
+country: 
+phone: 
 
 # homepage tiles
 tiles-source: posts # accepts "posts" or "pages"
