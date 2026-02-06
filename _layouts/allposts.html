@@ -19,16 +19,19 @@
       <!-- One -->
       <section id="one">
 	<div class="inner">
-          {% for post in site.posts %}
-	  {% if post.title != 404 %}
 	  <header class="major">
-	    <h1>{{ post.title }}</h1>
+	    <h1>All Posts</h1>
 	  </header>
-	  {% if post.image %}<span class="image main"><img src="{{ site.baseurl }}/{{ post.image }}" alt="" /></span>{% endif %}
-	  {% if post.date %}<p>{{ post.date }}</p>{% endif %}
-	  <p>{{ post.content }}</p>
-	  {% endif %}
-          {% endfor %}
+	  <ul>
+	    {% for post in site.posts %}
+	    {% if post.title != 404 %}
+	    <li>
+	      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+	      <span class="post-date"> — {{ post.date | date: "%B %d, %Y" }}</span>
+	    </li>
+	    {% endif %}
+	    {% endfor %}
+	  </ul>
 	</div>
       </section>
 
