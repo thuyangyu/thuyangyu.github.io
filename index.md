@@ -1,7 +1,7 @@
 ---
 layout: home
 title: Home
-landing-title: 'Hi, my name is Darren'
+landing-title: 'Darren Yang Blog'
 description: null
 image: null
 author: null
