@@ -1,3 +1,5 @@
+<!-- Comment out Page display -->
+<!--
 <section id="one" class="tiles">
   {% for page in site.pages %}
   {% if page.show_tile != false %}
@@ -13,6 +15,7 @@
   {% endif %}
   {% endfor %}
 </section>
+-->
 
 <section id="two" class="tiles">
   {% for post in site.posts limit:site.tiles-count %}
