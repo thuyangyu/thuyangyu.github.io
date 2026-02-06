@@ -30,6 +30,7 @@ slack_url:
 twitter_url: https://twitter.com/yangyu030000/
 
 # build settings
+future: true
 markdown: kramdown
 themes: forty
 sass:
