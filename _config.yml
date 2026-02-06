@@ -2,7 +2,7 @@
 title: Darren
 subtitle: Yu Yang
 email:
-description: An experienced software engineer with 5 years' experience of programming.<br />I'm looking for software engineer developer jobs and I’m available immediately.  
+description: Tech Lead Software Engineer, building telemetry/log ingestion platform, running customized hardware parser/transformation logic for Azure fleet hardware health. <br />5 years experience on large-scale, low latency streaming/batch processing, building high-throughput , low latency, secured, reliable, efficient, cloud-native data infrastructure.
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: # the base hostname & protocol for your site
 author:
