@@ -25,7 +25,7 @@ show_tile: true
 <!-- Two -->
 <section id="two" class="spotlights">
 	<section>
-		<a href="elements.html#landing-pub" class="image scrolly">
+		<a href="resume.html#landing-pub" class="image scrolly">
 			<img src="assets/images/pic21-invisible.jpg" alt="" data-position="center center" />
 		</a>
 		<div class="content">
@@ -42,7 +42,7 @@ show_tile: true
 		</div>
 	</section>
 	<section>
-		<a href="elements.html#landing-i3m" class="image next scrolly">
+		<a href="resume.html#landing-i3m" class="image next scrolly">
 			<img src="assets/images/pic23-i3m.png" alt="" data-position="top center" />
 		</a>
 		<div class="content">
