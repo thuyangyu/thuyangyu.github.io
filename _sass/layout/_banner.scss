@@ -77,16 +77,17 @@
 
 			.content {
 				@include vendor('display', 'flex');
-				@include vendor('align-items', 'center');
+				@include vendor('flex-direction', 'column');
+				@include vendor('align-items', 'flex-start');
 				margin: 0 0 _size(element-margin) 0;
 
 				> * {
-					margin-left: 1.5em;
-					margin-bottom: 0;
+					margin-left: 0;
+					margin-bottom: 0.75em;
 				}
 
-				> :first-child {
-					margin-left: 0;
+				> :last-child {
+					margin-bottom: 0;
 				}
 
 				p {
@@ -100,9 +101,9 @@
 		}
 
 		&.major {
-			height: 75vh;
+			height: auto;
 			min-height: 30em;
-			max-height: 50em;
+			max-height: none;
 
 			&.alt {
 				  opacity: 0.75;

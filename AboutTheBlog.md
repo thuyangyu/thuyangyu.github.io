@@ -6,10 +6,6 @@ image: assets/images/pic13-me.jpg
 nav-menu: true
 ---
 
-Engineer. Builder. Thinker.
-
-I'm a software engineer by profession, working primarily on backend systems, data platforms, and cloud infrastructure that support real products and real users. Much of my work focuses on designing reliable, high-throughput systems and using software to drive meaningful business outcomes.
-
 This blog is where I slow down and think in public.
 
 I write about engineering decisions, backend product design, technical leadership, and how organizations build and scale software systems. Just as often, I write about the principles behind those decisions — trade-offs, long-term thinking, and the invisible constraints that shape both systems and teams.
