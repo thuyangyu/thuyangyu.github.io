@@ -3,6 +3,7 @@ layout: post
 title: "Do Not Fear — Just Take the Next Step"
 description: Inner principles, Learnings.
 image: assets/images/pic08.jpg
+show_post_image: false
 ---
 
 Across ancient texts — the Bible, Stoic philosophy, Taoism, and Buddhism — one message appears again and again: *do not fear*. It’s an inner principle — a reminder of how to face uncertainty.

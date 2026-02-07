@@ -28,7 +28,7 @@
 			{% if page.author %}<span>{{ page.author }}</span>{% endif %}
 		</div>
 		{% endif %}
-		{% if page.image %}<span class="image main"><img src="{{ page.image | relative_url }}" alt="" /></span>{% endif %}
+		{% if page.image and page.show_post_image != false %}<span class="image main"><img src="{{ page.image | relative_url }}" alt="" /></span>{% endif %}
 		<p>{{ content }}</p>
 	</div>
 </section>
