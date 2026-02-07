@@ -2,7 +2,7 @@
 title: Darren
 subtitle: Yu Yang
 email:
-description: Tech Lead Software Engineer, building telemetry/log ingestion platform, running customized hardware parser/transformation logic for Azure fleet hardware health. <br />5 years experience on large-scale, low latency streaming/batch processing, building high-throughput , low latency, secured, reliable, efficient, cloud-native data infrastructure.
+description: Engineer. Builder. Thinker. — A blog about engineering decisions, backend systems, technical leadership, and navigating the AI era.
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: # the base hostname & protocol for your site
 author:
