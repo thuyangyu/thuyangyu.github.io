@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Do Not Fear — Just Take the Next Step
+title: "Do Not Fear — Just Take the Next Step"
 description: Inner principles, Learnings.
 image: assets/images/pic08.jpg
 ---
